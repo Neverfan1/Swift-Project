@@ -11,59 +11,80 @@ struct AuthorizationView: View {
     
     @State private var input = ""
     
-    let viewModel = AuthorizationViewModel()
+    @StateObject private var viewModel = AuthorizationViewModel()
     
     var body: some View {
         VStack {
+            
             Spacer()
-            Image("vk_logo")
-                .renderingMode(.original)
-                .resizable()
-                .frame(width: 90, height: 90, alignment: .center)
-                .cornerRadius(15)
-
-            Text("Вход в VK ID")
+            topImage
+            titleView
                 .padding()
                 .padding(.horizontal, 30)
-                .font(.title2.bold())
-            
-            
-            VStack{
-                TextField("Телефон или почта", text: $input)
-                    .padding()
-                    .background(Color.gray.opacity(0.17))
-                    .overlay(
-                                RoundedRectangle(cornerRadius: 14)
-                                    .stroke(.gray.opacity(0.34),lineWidth: 3)
-                            )
-                    .cornerRadius(14)
-                    .padding(.horizontal, 12)
-                    .font(.callout)
-                    .padding(.bottom, 5)
-                
+            AppTextField(text: $input)
 
-            }
-            
             VStack(spacing: 15){
-            
-            AppButton(style: .button1,
-                      title: "Войти")
-            Text("Или с помощью")
-                    .font(.footnote)
-                    .opacity(0.4)
-            AppButton(style: .button2,
-                      title: "Войти через Apple")
-
-
+                
+                    enterButton
+                    subTitle
+                    AppleButton
             }
             Spacer()
-            VStack{
-            AppButton(style: .button3,
-                      title: "Зарегистрироваться")
-            }
+            regButton
+            
         }
         .frame(maxWidth: .infinity,  maxHeight: .infinity)
         .background(Color.white.ignoresSafeArea())
+    }
+}
+
+
+private extension AuthorizationView{
+    var topImage: some View{
+        Image("vk_logo")
+            .renderingMode(.original)
+            .resizable()
+            .frame(width: 90, height: 90, alignment: .center)
+            .cornerRadius(15)
+        
+    }
+    
+    var titleView: some View{
+        Text(viewModel.output.title)
+            .font(.title2.bold())
+        
+    }
+    
+    var subTitle: some View{
+        Text("Или с помощью")
+                .font(.footnote)
+                .opacity(0.4)
+    }
+    
+    var enterButton: some View{
+        AppButton(style: .button1,
+                  title: "Войти",
+                  action: enterButtonTap)
+    }
+    
+    var AppleButton: some View{
+        AppButton(style: .button2,
+                  title: "Войти через Apple",
+                  action: {})
+    }
+    
+    var regButton: some View{
+        AppButton(style: .button3,
+                  title: "Зарегистрироваться",
+                  action: {})
+    }
+}
+
+private extension AuthorizationView{
+
+    func enterButtonTap() {
+        viewModel.input.enterButtonTap.send()
+        
     }
 }
 

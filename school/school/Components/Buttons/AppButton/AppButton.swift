@@ -13,31 +13,35 @@ struct AppButton: View {
     
     let style: AppButtonStyle
     let title: String
+    let action: () -> Void
 
     
     var body: some View {
         
-        HStack{
-            if style.logo{
-            Image(systemName: "applelogo")
-                .font(.title)
-            }
-            Spacer()
-            Text(title)
-                .font(.callout)
-                .foregroundColor(style.textColor)
-            Spacer()
-
-        }
-            .padding()
-            .background(style.background)
-            .overlay(
-                        RoundedRectangle(cornerRadius: 14)
-                            .stroke(style.borderColor,lineWidth: 3)
-                    )
-            .cornerRadius(14)
-            .padding(.horizontal, 12)
+        Button(action: action) {
             
+            HStack{
+                if style.logo{
+                Image(systemName: "applelogo")
+                    .font(.title)
+                }
+                Spacer()
+                Text(title)
+                    .font(.callout)
+                    .foregroundColor(style.textColor)
+                Spacer()
+
+            }
+                .padding()
+                .background(style.background)
+                .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(style.borderColor,lineWidth: 3)
+                        )
+                .cornerRadius(14)
+                .padding(.horizontal, 12)
+                
+        }
         
 //        .overlay(content: disabledView)
     }
@@ -56,7 +60,8 @@ struct AppButton: View {
 struct AppButton_Previews: PreviewProvider {
     static var previews: some View {
         AppButton(style: .button2,
-                  title: "Войти через Apple")
+                  title: "Войти через Apple",
+                  action: {})
         
         
     }

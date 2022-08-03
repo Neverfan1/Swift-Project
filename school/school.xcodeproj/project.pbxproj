@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5A2AE2E28902F2D009219C9 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE2D28902F2D009219C9 /* AppTextField.swift */; };
+		B5A2AE312892D0D1009219C9 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE302892D0D1009219C9 /* UsersListView.swift */; };
+		B5A2AE342892D103009219C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE332892D103009219C9 /* User.swift */; };
+		B5A2AE372892D5F5009219C9 /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE362892D5F5009219C9 /* UserCellView.swift */; };
+		B5A2AE3A2892DD51009219C9 /* ServerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE392892DD51009219C9 /* ServerUser.swift */; };
+		B5A2AE3D2892DEB7009219C9 /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE3C2892DEB7009219C9 /* BaseModelMapper.swift */; };
+		B5A2AE3F2892DFBB009219C9 /* UserModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE3E2892DFBB009219C9 /* UserModelMapper.swift */; };
+		B5A2AE43289853D4009219C9 /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE42289853D4009219C9 /* SettingsCellView.swift */; };
+		B5A2AE4528985447009219C9 /* ButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE4428985447009219C9 /* ButtonModel.swift */; };
+		B5A2AE4728985FA0009219C9 /* ServerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE4628985FA0009219C9 /* ServerButton.swift */; };
+		B5A2AE4928986630009219C9 /* AppButtonStyleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE4828986630009219C9 /* AppButtonStyleSettings.swift */; };
+		B5A2AE4B28988602009219C9 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE4A28988602009219C9 /* SettingsListView.swift */; };
+		B5A2AE4D28989868009219C9 /* SettingsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE4C28989868009219C9 /* SettingsListViewModel.swift */; };
+		B5A2AE52289961DC009219C9 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE51289961DC009219C9 /* TestViewModel.swift */; };
+		B5A2AE54289961F4009219C9 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE53289961F4009219C9 /* TestView.swift */; };
+		B5A2AE58289962A6009219C9 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE57289962A6009219C9 /* Provider.swift */; };
+		B5A2AE5B28996757009219C9 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B5A2AE5A28996757009219C9 /* CombineMoya */; };
+		B5A2AE5D28996757009219C9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B5A2AE5C28996757009219C9 /* Moya */; };
+		B5A2AE6028996E2C009219C9 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = B5A2AE5F28996E2C009219C9 /* CombineExt */; };
+		B5A2AE62289A9B43009219C9 /* SettingsProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A2AE61289A9B43009219C9 /* SettingsProfileView.swift */; };
 		B5B5CC322886F53700BBAB4A /* schoolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5CC312886F53700BBAB4A /* schoolApp.swift */; };
 		B5B5CC362886F53E00BBAB4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B5CC352886F53E00BBAB4A /* Assets.xcassets */; };
 		B5B5CC392886F53E00BBAB4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B5CC382886F53E00BBAB4A /* Preview Assets.xcassets */; };
@@ -18,6 +38,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5A2AE2D28902F2D009219C9 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		B5A2AE302892D0D1009219C9 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		B5A2AE332892D103009219C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5A2AE362892D5F5009219C9 /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
+		B5A2AE392892DD51009219C9 /* ServerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUser.swift; sourceTree = "<group>"; };
+		B5A2AE3C2892DEB7009219C9 /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
+		B5A2AE3E2892DFBB009219C9 /* UserModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelMapper.swift; sourceTree = "<group>"; };
+		B5A2AE42289853D4009219C9 /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		B5A2AE4428985447009219C9 /* ButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModel.swift; sourceTree = "<group>"; };
+		B5A2AE4628985FA0009219C9 /* ServerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerButton.swift; sourceTree = "<group>"; };
+		B5A2AE4828986630009219C9 /* AppButtonStyleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButtonStyleSettings.swift; sourceTree = "<group>"; };
+		B5A2AE4A28988602009219C9 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
+		B5A2AE4C28989868009219C9 /* SettingsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListViewModel.swift; sourceTree = "<group>"; };
+		B5A2AE51289961DC009219C9 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		B5A2AE53289961F4009219C9 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		B5A2AE57289962A6009219C9 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		B5A2AE61289A9B43009219C9 /* SettingsProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileView.swift; sourceTree = "<group>"; };
 		B5B5CC2E2886F53700BBAB4A /* school.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = school.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B5CC312886F53700BBAB4A /* schoolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schoolApp.swift; sourceTree = "<group>"; };
 		B5B5CC352886F53E00BBAB4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,12 +71,111 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A2AE5D28996757009219C9 /* Moya in Frameworks */,
+				B5A2AE6028996E2C009219C9 /* CombineExt in Frameworks */,
+				B5A2AE5B28996757009219C9 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5A2AE2C28902ED7009219C9 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE2D28902F2D009219C9 /* AppTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		B5A2AE2F2892D0AC009219C9 /* UsersListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE352892D5CF009219C9 /* Components */,
+				B5A2AE302892D0D1009219C9 /* UsersListView.swift */,
+			);
+			path = UsersListScreen;
+			sourceTree = "<group>";
+		};
+		B5A2AE322892D0F1009219C9 /* LocalModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE332892D103009219C9 /* User.swift */,
+				B5A2AE4428985447009219C9 /* ButtonModel.swift */,
+			);
+			path = LocalModels;
+			sourceTree = "<group>";
+		};
+		B5A2AE352892D5CF009219C9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE362892D5F5009219C9 /* UserCellView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B5A2AE382892DD39009219C9 /* ServerModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE392892DD51009219C9 /* ServerUser.swift */,
+				B5A2AE4628985FA0009219C9 /* ServerButton.swift */,
+			);
+			path = ServerModels;
+			sourceTree = "<group>";
+		};
+		B5A2AE3B2892DEA0009219C9 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE3C2892DEB7009219C9 /* BaseModelMapper.swift */,
+				B5A2AE3E2892DFBB009219C9 /* UserModelMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		B5A2AE4028985049009219C9 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE4128985380009219C9 /* Components */,
+				B5A2AE4A28988602009219C9 /* SettingsListView.swift */,
+				B5A2AE4C28989868009219C9 /* SettingsListViewModel.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		B5A2AE4128985380009219C9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE42289853D4009219C9 /* SettingsCellView.swift */,
+				B5A2AE61289A9B43009219C9 /* SettingsProfileView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B5A2AE50289961BA009219C9 /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE51289961DC009219C9 /* TestViewModel.swift */,
+				B5A2AE53289961F4009219C9 /* TestView.swift */,
+			);
+			path = TestView;
+			sourceTree = "<group>";
+		};
+		B5A2AE5528996235009219C9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE5628996240009219C9 /* API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B5A2AE5628996240009219C9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B5A2AE57289962A6009219C9 /* Provider.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		B5B5CC252886F53700BBAB4A = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +195,7 @@
 		B5B5CC302886F53700BBAB4A /* school */ = {
 			isa = PBXGroup;
 			children = (
+				B5A2AE5528996235009219C9 /* Services */,
 				B5B5CC532889A56A00BBAB4A /* Components */,
 				B5B5CC4B2889A37A00BBAB4A /* Helpers */,
 				B5B5CC4A2889A36800BBAB4A /* Models */,
@@ -98,6 +235,9 @@
 		B5B5CC492889A36000BBAB4A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B5A2AE50289961BA009219C9 /* TestView */,
+				B5A2AE4028985049009219C9 /* SettingsScreen */,
+				B5A2AE2F2892D0AC009219C9 /* UsersListScreen */,
 				B5B5CC4D2889A43500BBAB4A /* AuthorizationScreen */,
 			);
 			path = Modules;
@@ -106,6 +246,9 @@
 		B5B5CC4A2889A36800BBAB4A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B5A2AE3B2892DEA0009219C9 /* Mappers */,
+				B5A2AE382892DD39009219C9 /* ServerModels */,
+				B5A2AE322892D0F1009219C9 /* LocalModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +280,7 @@
 		B5B5CC532889A56A00BBAB4A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B5A2AE2C28902ED7009219C9 /* TextField */,
 				B5B5CC542889A57500BBAB4A /* Buttons */,
 			);
 			path = Components;
@@ -155,6 +299,7 @@
 			children = (
 				B5B5CC562889A58D00BBAB4A /* AppButton.swift */,
 				B5B5CC582889A5AC00BBAB4A /* AppButtonStyle.swift */,
+				B5A2AE4828986630009219C9 /* AppButtonStyleSettings.swift */,
 			);
 			path = AppButton;
 			sourceTree = "<group>";
@@ -175,6 +320,11 @@
 			dependencies = (
 			);
 			name = school;
+			packageProductDependencies = (
+				B5A2AE5A28996757009219C9 /* CombineMoya */,
+				B5A2AE5C28996757009219C9 /* Moya */,
+				B5A2AE5F28996E2C009219C9 /* CombineExt */,
+			);
 			productName = school;
 			productReference = B5B5CC2E2886F53700BBAB4A /* school.app */;
 			productType = "com.apple.product-type.application";
@@ -203,6 +353,10 @@
 				Base,
 			);
 			mainGroup = B5B5CC252886F53700BBAB4A;
+			packageReferences = (
+				B5A2AE5928996757009219C9 /* XCRemoteSwiftPackageReference "Moya" */,
+				B5A2AE5E28996E2C009219C9 /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			productRefGroup = B5B5CC2F2886F53700BBAB4A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,10 +385,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B5CC522889A49300BBAB4A /* AuthorizationViewModel.swift in Sources */,
+				B5A2AE4728985FA0009219C9 /* ServerButton.swift in Sources */,
+				B5A2AE43289853D4009219C9 /* SettingsCellView.swift in Sources */,
+				B5A2AE3F2892DFBB009219C9 /* UserModelMapper.swift in Sources */,
+				B5A2AE3D2892DEB7009219C9 /* BaseModelMapper.swift in Sources */,
+				B5A2AE4B28988602009219C9 /* SettingsListView.swift in Sources */,
+				B5A2AE3A2892DD51009219C9 /* ServerUser.swift in Sources */,
+				B5A2AE4928986630009219C9 /* AppButtonStyleSettings.swift in Sources */,
 				B5B5CC502889A47A00BBAB4A /* AuthorizationView.swift in Sources */,
 				B5B5CC322886F53700BBAB4A /* schoolApp.swift in Sources */,
+				B5A2AE4528985447009219C9 /* ButtonModel.swift in Sources */,
+				B5A2AE62289A9B43009219C9 /* SettingsProfileView.swift in Sources */,
 				B5B5CC572889A58D00BBAB4A /* AppButton.swift in Sources */,
+				B5A2AE52289961DC009219C9 /* TestViewModel.swift in Sources */,
+				B5A2AE342892D103009219C9 /* User.swift in Sources */,
+				B5A2AE4D28989868009219C9 /* SettingsListViewModel.swift in Sources */,
 				B5B5CC592889A5AC00BBAB4A /* AppButtonStyle.swift in Sources */,
+				B5A2AE58289962A6009219C9 /* Provider.swift in Sources */,
+				B5A2AE54289961F4009219C9 /* TestView.swift in Sources */,
+				B5A2AE2E28902F2D009219C9 /* AppTextField.swift in Sources */,
+				B5A2AE372892D5F5009219C9 /* UserCellView.swift in Sources */,
+				B5A2AE312892D0D1009219C9 /* UsersListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +612,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5A2AE5928996757009219C9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B5A2AE5E28996E2C009219C9 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5A2AE5A28996757009219C9 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5A2AE5928996757009219C9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		B5A2AE5C28996757009219C9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5A2AE5928996757009219C9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		B5A2AE5F28996E2C009219C9 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5A2AE5E28996E2C009219C9 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5B5CC262886F53700BBAB4A /* Project object */;
 }
