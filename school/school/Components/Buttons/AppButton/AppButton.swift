@@ -24,6 +24,7 @@ struct AppButton: View {
                 if style.logo{
                 Image(systemName: "applelogo")
                     .font(.title)
+                    .foregroundColor(.black)
                 }
                 Spacer()
                 Text(title)

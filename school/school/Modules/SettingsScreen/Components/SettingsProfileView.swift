@@ -33,7 +33,7 @@ struct SettingsProfileView: View {
             }
         }
         .frame(width: UIScreen.main.bounds.width/1.03)
-        .background(Color.gray.opacity(0.3))
+        .background(Color.gray.opacity(0.1))
         .cornerRadius(14)
     }
 }

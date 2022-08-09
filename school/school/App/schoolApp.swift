@@ -11,7 +11,7 @@ import SwiftUI
 struct schoolApp: App {
     var body: some Scene {
         WindowGroup {
-            SettingsListView()
+            GroupView()
         }
     }
 }
