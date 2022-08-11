@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GroupListView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel = GroupListViewModel()
     
     var body: some View {
@@ -22,6 +23,11 @@ struct GroupListView: View {
                     GroupsCellView(model: model)
                     Divider()
                 }
+            }
+        }
+        .onChange(of: viewModel.output.error) { error in
+            if error {
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }

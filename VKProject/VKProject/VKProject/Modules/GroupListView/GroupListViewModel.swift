@@ -45,7 +45,9 @@ final class GroupListViewModel: ObservableObject {
         
         request
             .failures()
-            .sink {
+            .sink { [weak self] in
+                LocalStorage.current.token = nil
+                self?.output.error = true
                 switch $0 {
                 case .badQuery: print("badQuery")
                 case .notFound: print("notFound")
@@ -65,5 +67,6 @@ extension GroupListViewModel {
     
     struct Output {
         var groups: [GroupModel] = []
+        var error = false
     }
 }
