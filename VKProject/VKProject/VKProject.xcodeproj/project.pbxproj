@@ -30,6 +30,20 @@
 		B56532DF28A323CD00669546 /* GroupListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532DE28A323CD00669546 /* GroupListViewModel.swift */; };
 		B56532E228A3BE8A00669546 /* FriendsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532E128A3BE8A00669546 /* FriendsCellView.swift */; };
 		B56532E528A3FACB00669546 /* GroupsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532E428A3FACB00669546 /* GroupsCellView.swift */; };
+		B58DCCEF28A6E1DB00116A6E /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCCEE28A6E1DB00116A6E /* NetworkImage.swift */; };
+		B58DCCF228A6E28700116A6E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B58DCCF128A6E28700116A6E /* Kingfisher */; };
+		B58DCCF628AACAB300116A6E /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCCF528AACAB200116A6E /* PhotoModel.swift */; };
+		B58DCCF928AACE8900116A6E /* ServerPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCCF828AACE8900116A6E /* ServerPhotoModel.swift */; };
+		B58DCCFB28AACF5A00116A6E /* PhotoModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCCFA28AACF5A00116A6E /* PhotoModelMapper.swift */; };
+		B58DCCFE28AB037700116A6E /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCCFD28AB037600116A6E /* PhotoListViewModel.swift */; };
+		B58DCD0028AB03AE00116A6E /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCCFF28AB03AE00116A6E /* AlbumListView.swift */; };
+		B58DCD0328AB042600116A6E /* PhotoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DCD0228AB042600116A6E /* PhotoCellView.swift */; };
+		B5BD78B028AB93EE0045432B /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78AF28AB93EE0045432B /* AlbumModel.swift */; };
+		B5BD78B228AB96FA0045432B /* ServerAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B128AB96FA0045432B /* ServerAlbumModel.swift */; };
+		B5BD78B428AB97D80045432B /* AlbumModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B328AB97D80045432B /* AlbumModelMapper.swift */; };
+		B5BD78B628AB9A350045432B /* AlbumsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B528AB9A350045432B /* AlbumsCellView.swift */; };
+		B5BD78B828AB9B690045432B /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B728AB9B690045432B /* AlbumListViewModel.swift */; };
+		B5BD78BA28AB9F9F0045432B /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B928AB9F9F0045432B /* PhotoListView.swift */; };
 		B5FE082528A2F83F001CA237 /* VKProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE082428A2F83F001CA237 /* VKProjectApp.swift */; };
 		B5FE082928A2F842001CA237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FE082828A2F842001CA237 /* Assets.xcassets */; };
 		B5FE082C28A2F842001CA237 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FE082B28A2F842001CA237 /* Preview Assets.xcassets */; };
@@ -69,6 +83,19 @@
 		B56532DE28A323CD00669546 /* GroupListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewModel.swift; sourceTree = "<group>"; };
 		B56532E128A3BE8A00669546 /* FriendsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCellView.swift; sourceTree = "<group>"; };
 		B56532E428A3FACB00669546 /* GroupsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCellView.swift; sourceTree = "<group>"; };
+		B58DCCEE28A6E1DB00116A6E /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		B58DCCF528AACAB200116A6E /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		B58DCCF828AACE8900116A6E /* ServerPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPhotoModel.swift; sourceTree = "<group>"; };
+		B58DCCFA28AACF5A00116A6E /* PhotoModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModelMapper.swift; sourceTree = "<group>"; };
+		B58DCCFD28AB037600116A6E /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		B58DCCFF28AB03AE00116A6E /* AlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListView.swift; sourceTree = "<group>"; };
+		B58DCD0228AB042600116A6E /* PhotoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellView.swift; sourceTree = "<group>"; };
+		B5BD78AF28AB93EE0045432B /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
+		B5BD78B128AB96FA0045432B /* ServerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAlbumModel.swift; sourceTree = "<group>"; };
+		B5BD78B328AB97D80045432B /* AlbumModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModelMapper.swift; sourceTree = "<group>"; };
+		B5BD78B528AB9A350045432B /* AlbumsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCellView.swift; sourceTree = "<group>"; };
+		B5BD78B728AB9B690045432B /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
+		B5BD78B928AB9F9F0045432B /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
 		B5FE082128A2F83F001CA237 /* VKProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FE082428A2F83F001CA237 /* VKProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKProjectApp.swift; sourceTree = "<group>"; };
 		B5FE082828A2F842001CA237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58DCCF228A6E28700116A6E /* Kingfisher in Frameworks */,
 				B5FE083628A2F974001CA237 /* Moya in Frameworks */,
 				B5FE083928A2F98D001CA237 /* CombineExt in Frameworks */,
 				B5FE083428A2F974001CA237 /* CombineMoya in Frameworks */,
@@ -136,6 +164,35 @@
 			isa = PBXGroup;
 			children = (
 				B56532E428A3FACB00669546 /* GroupsCellView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B58DCCED28A6E1A200116A6E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B58DCCEE28A6E1DB00116A6E /* NetworkImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B58DCCFC28AB033E00116A6E /* PhotoListView */ = {
+			isa = PBXGroup;
+			children = (
+				B58DCD0128AB040E00116A6E /* Components */,
+				B5BD78B928AB9F9F0045432B /* PhotoListView.swift */,
+				B58DCCFF28AB03AE00116A6E /* AlbumListView.swift */,
+				B58DCCFD28AB037600116A6E /* PhotoListViewModel.swift */,
+				B5BD78B728AB9B690045432B /* AlbumListViewModel.swift */,
+			);
+			path = PhotoListView;
+			sourceTree = "<group>";
+		};
+		B58DCD0128AB040E00116A6E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B58DCD0228AB042600116A6E /* PhotoCellView.swift */,
+				B5BD78B528AB9A350045432B /* AlbumsCellView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -209,6 +266,7 @@
 		B5FE083D28A2FACF001CA237 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B58DCCED28A6E1A200116A6E /* Images */,
 				B5FE084828A2FC22001CA237 /* Buttons */,
 			);
 			path = Components;
@@ -236,6 +294,7 @@
 		B5FE084028A2FAFE001CA237 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B58DCCFC28AB033E00116A6E /* PhotoListView */,
 				B56532DB28A3239200669546 /* GroupListView */,
 				B56532D228A3202900669546 /* FriendListView */,
 				B56532CF28A31FF000669546 /* WebView */,
@@ -250,6 +309,8 @@
 				B56532B728A30DF300669546 /* BaseModelMapper.swift */,
 				B56532B928A30E4500669546 /* FriendModelMapper.swift */,
 				B56532BF28A31B0900669546 /* GroupModelMapper.swift */,
+				B58DCCFA28AACF5A00116A6E /* PhotoModelMapper.swift */,
+				B5BD78B328AB97D80045432B /* AlbumModelMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -259,6 +320,8 @@
 			children = (
 				B56532B328A30D7700669546 /* ServerFriendModel.swift */,
 				B56532BD28A30F4E00669546 /* ServerGroupModel.swift */,
+				B58DCCF828AACE8900116A6E /* ServerPhotoModel.swift */,
+				B5BD78B128AB96FA0045432B /* ServerAlbumModel.swift */,
 			);
 			path = ServerModels;
 			sourceTree = "<group>";
@@ -270,6 +333,8 @@
 				B5FE085828A2FE3C001CA237 /* UserModel.swift */,
 				B56532B528A30DB800669546 /* FriendModel.swift */,
 				B56532C128A31B3A00669546 /* GroupModel.swift */,
+				B58DCCF528AACAB200116A6E /* PhotoModel.swift */,
+				B5BD78AF28AB93EE0045432B /* AlbumModel.swift */,
 			);
 			path = LocalModels;
 			sourceTree = "<group>";
@@ -364,6 +429,7 @@
 				B5FE083328A2F974001CA237 /* CombineMoya */,
 				B5FE083528A2F974001CA237 /* Moya */,
 				B5FE083828A2F98D001CA237 /* CombineExt */,
+				B58DCCF128A6E28700116A6E /* Kingfisher */,
 			);
 			productName = VKProject;
 			productReference = B5FE082128A2F83F001CA237 /* VKProject.app */;
@@ -396,6 +462,7 @@
 			packageReferences = (
 				B5FE083228A2F974001CA237 /* XCRemoteSwiftPackageReference "Moya" */,
 				B5FE083728A2F98D001CA237 /* XCRemoteSwiftPackageReference "CombineExt" */,
+				B58DCCF028A6E28700116A6E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = B5FE082228A2F83F001CA237 /* Products */;
 			projectDirPath = "";
@@ -424,24 +491,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FE085728A2FDF5001CA237 /* ButtonModel.swift in Sources */,
+				B58DCD0328AB042600116A6E /* PhotoCellView.swift in Sources */,
 				B56532C028A31B0900669546 /* GroupModelMapper.swift in Sources */,
 				B56532DD28A323B100669546 /* GroupListView.swift in Sources */,
 				B56532B828A30DF300669546 /* BaseModelMapper.swift in Sources */,
 				B56532CE28A31F2400669546 /* VKAPIService.swift in Sources */,
+				B5BD78B628AB9A350045432B /* AlbumsCellView.swift in Sources */,
 				B5FE084B28A2FC67001CA237 /* AppButtonsStyleSettings.swift in Sources */,
 				B56532CC28A31D7F00669546 /* Consts.swift in Sources */,
+				B5BD78B428AB97D80045432B /* AlbumModelMapper.swift in Sources */,
+				B5BD78B828AB9B690045432B /* AlbumListViewModel.swift in Sources */,
 				B56532C628A31D0C00669546 /* Provider.swift in Sources */,
 				B56532E228A3BE8A00669546 /* FriendsCellView.swift in Sources */,
+				B5BD78B228AB96FA0045432B /* ServerAlbumModel.swift in Sources */,
 				B5FE085928A2FE3C001CA237 /* UserModel.swift in Sources */,
 				B5FE084F28A2FCF0001CA237 /* SettingsListView.swift in Sources */,
 				B56532B428A30D7700669546 /* ServerFriendModel.swift in Sources */,
+				B58DCCF628AACAB300116A6E /* PhotoModel.swift in Sources */,
+				B58DCCFE28AB037700116A6E /* PhotoListViewModel.swift in Sources */,
 				B56532C828A31D2A00669546 /* APIError.swift in Sources */,
 				B56532B628A30DB800669546 /* FriendModel.swift in Sources */,
 				B5FE082528A2F83F001CA237 /* VKProjectApp.swift in Sources */,
 				B56532C228A31B3A00669546 /* GroupModel.swift in Sources */,
+				B5BD78B028AB93EE0045432B /* AlbumModel.swift in Sources */,
 				B56532DF28A323CD00669546 /* GroupListViewModel.swift in Sources */,
 				B56532DA28A3218900669546 /* ContentView.swift in Sources */,
 				B56532D828A3217100669546 /* ContentViewModel.swift in Sources */,
+				B5BD78BA28AB9F9F0045432B /* PhotoListView.swift in Sources */,
 				B56532D628A320AA00669546 /* FriendsListViewModel.swift in Sources */,
 				B56532D428A3209000669546 /* FriendsListView.swift in Sources */,
 				B56532D128A3200400669546 /* RepresentableWebView.swift in Sources */,
@@ -449,9 +525,13 @@
 				B56532CA28A31D5E00669546 /* VKAPI.swift in Sources */,
 				B5FE085328A2FD7E001CA237 /* SettingsCellView.swift in Sources */,
 				B56532C428A31CB600669546 /* LocalStorage.swift in Sources */,
+				B58DCCEF28A6E1DB00116A6E /* NetworkImage.swift in Sources */,
+				B58DCCFB28AACF5A00116A6E /* PhotoModelMapper.swift in Sources */,
+				B58DCD0028AB03AE00116A6E /* AlbumListView.swift in Sources */,
 				B56532E528A3FACB00669546 /* GroupsCellView.swift in Sources */,
 				B56532BE28A30F4E00669546 /* ServerGroupModel.swift in Sources */,
 				B5FE085128A2FD3D001CA237 /* SettingsListViewModel.swift in Sources */,
+				B58DCCF928AACE8900116A6E /* ServerPhotoModel.swift in Sources */,
 				B5FE085528A2FD9F001CA237 /* SettingsProfileView.swift in Sources */,
 				B56532BC28A30E9A00669546 /* Extensions + String.swift in Sources */,
 			);
@@ -656,6 +736,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B58DCCF028A6E28700116A6E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 7.3.0;
+			};
+		};
 		B5FE083228A2F974001CA237 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -675,6 +763,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B58DCCF128A6E28700116A6E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B58DCCF028A6E28700116A6E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		B5FE083328A2F974001CA237 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B5FE083228A2F974001CA237 /* XCRemoteSwiftPackageReference "Moya" */;

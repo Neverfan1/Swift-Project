@@ -25,17 +25,19 @@ struct ServerGroupModel: Decodable{
     let screenName: String?
     let isClosed: Int?
     let type: String?
-    let photo100: String?
+    let photo200: String?
+    let activity: String?
     
     
-    enum CodingKeys2: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id = "id"
         case description = "description"
         case name = "name"
         case screenName = "screen_name"
         case isClosed = "is_closed"
         case type = "type"
-        case photo100 = "photo_100"
+        case photo200 = "photo_200"
+        case activity = "activity"
     }
 }
 

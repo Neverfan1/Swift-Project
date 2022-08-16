@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsListView: View {
+    @StateObject var webViewModel = ContentViewModel()
     
     @StateObject private var viewModel = SettingsListViewModel()
     
@@ -134,7 +135,7 @@ private extension SettingsListView{
     
     var exitButton: some View{
         
-            Button("Выйти", action: {})
+        Button("Выйти"){}
                 .foregroundColor(Color.red)
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.top, 30)

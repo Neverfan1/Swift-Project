@@ -12,6 +12,7 @@ enum LocalStorageKey: String {
     case token
     case vkId
     case expiresIn
+    case albumID
 }
 
 struct LocalStorage {
@@ -50,6 +51,17 @@ struct LocalStorage {
         
         set {
             userDefaults.set(newValue, forKey: LocalStorageKey.expiresIn.rawValue)
+        }
+    }
+    
+    var albumID: Int? {
+        
+        get {
+            userDefaults.integer(forKey: LocalStorageKey.albumID.rawValue)
+        }
+        
+        set{
+            userDefaults.set(newValue, forKey: LocalStorageKey.albumID.rawValue)
         }
     }
 }

@@ -16,7 +16,7 @@ struct Consts {
         static let displayKey = "display"
         static let displayValue = "mobile"
         static let scopeKey = "scope"
-        static let scopeValue = "22"
+        static let scopeValue = "offline,photos"
         static let responseTypeKey = "response_type"
         static let responseTypeValue = "token"
         static let tokenKey = "access_token"

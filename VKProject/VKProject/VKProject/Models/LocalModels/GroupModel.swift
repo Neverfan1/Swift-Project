@@ -15,7 +15,8 @@ struct GroupModel: Identifiable{
     let screenName: String
     let isClosed: Int
     let type: String
-    let photo100: String
+    let photo200: String
+    let activity: String
     
         
 }
@@ -24,7 +25,14 @@ extension GroupModel{
 
     static func group_mock1() -> Self {
         
-        GroupModel(id: 1, description: "Описание", name: "Test", screenName: "Te", isClosed: 1, type: "page", photo100: "https....")
+        GroupModel(id: 1,
+                   description: "description",
+                   name: "Test",
+                   screenName: "Te",
+                   isClosed: 1,
+                   type: "page",
+                   photo200:"https://www.interfax.ru/ftproot/photos/photostory/2022/04/29/week/week7_1100.jpg",
+                   activity: "activity")
     }
     
 }

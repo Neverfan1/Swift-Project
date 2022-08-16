@@ -16,6 +16,20 @@ final class GroupModelMapper: BaseModelMapper<ServerGroupModel, GroupModel> {
                    screenName: serverEntity.screenName.orEmpty ,
                    isClosed: serverEntity.isClosed ?? 0,
                    type: serverEntity.type.orEmpty ,
-                   photo100: serverEntity.photo100.orEmpty )
+                   photo200: replaseSlash(groupURL: serverEntity.photo200),
+                   activity: serverEntity.activity.orEmpty)
     }
 }
+
+private extension GroupModelMapper {
+    func replaseSlash(groupURL: String?) -> String {
+        if groupURL == nil{
+            return ""
+        }
+        else{
+            return  groupURL!.replacingOccurrences(of: "\\/", with: "/", options: .literal)
+        }
+        
+    }
+}
+

@@ -1,15 +1,16 @@
 //
-//  GroupListViewModel.swift
+//  PhotoListViewModel.swift
 //  VKProject
 //
-//  Created by Данила Парамин on 10.08.2022.
+//  Created by Данила Парамин on 16.08.2022.
 //
+
 
 import Foundation
 import Combine
 import CombineExt
 
-final class GroupListViewModel: ObservableObject {
+final class PhotoListViewModel: ObservableObject {
     
     let apiService = VKAPIService()
     
@@ -30,8 +31,10 @@ final class GroupListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getGroups()
+                self.apiService.getPhoto()
                     .materialize()
+
+                
             }
             .switchToLatest()
             .share()
@@ -39,7 +42,7 @@ final class GroupListViewModel: ObservableObject {
         request
             .values()
             .sink { [weak self] in
-                self?.output.groups = $0
+                self?.output.photo = $0
             }
             .store(in: &cancellable)
         
@@ -59,14 +62,15 @@ final class GroupListViewModel: ObservableObject {
     
 }
 
-extension GroupListViewModel {
+extension PhotoListViewModel {
     
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
-        var groups: [GroupModel] = []
+        var photo: [PhotoModel] = []
         var error = false
     }
 }
+

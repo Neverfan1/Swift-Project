@@ -14,3 +14,17 @@ extension Optional where Wrapped == String {
         return value
     }
 }
+
+//extension String
+//{
+//    func replace(target: String, withString: String) -> String
+//    {
+//        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+//    }
+//}
+
+extension String {
+    var withoutSpecialCharacters: String {
+        return self.components(separatedBy: CharacterSet.symbols).joined(separator: "")
+    }
+}

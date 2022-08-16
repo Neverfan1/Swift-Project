@@ -11,6 +11,11 @@ import Moya
 enum VKAPI {
     case getFriends
     case getGroups
+    case getNewsFeed
+    case getPhoto
+    case getAlbums
+
+    
 }
 
 
@@ -25,6 +30,14 @@ extension VKAPI: TargetType {
             return "method/friends.get"
         case  .getGroups:
             return "method/groups.get"
+        case .getNewsFeed:
+            return "method/newsfeed.get"
+        case .getPhoto:
+            return "method/photos.get"
+        case .getAlbums:
+            return "method/photos.getAlbums"
+
+            
         }
     }
     
@@ -38,7 +51,7 @@ extension VKAPI: TargetType {
             var param: [String: Any] = [:]
             param["access_token"] = LocalStorage.current.token
             param["count"] = 1000
-            param["fields"] = "online"
+            param["fields"] = "online,photo_Max"
             param["v"] = "5.131"
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
         
@@ -46,10 +59,40 @@ extension VKAPI: TargetType {
             var param: [String: Any] = [:]
             param["access_token"] = LocalStorage.current.token
             param["extended"] = 1
-            param["fields"] = "description"
+            param["fields"] = "description,photo_200,activity"
             param["count"] = 1000
             param["v"] = "5.131"
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
+        
+        case .getNewsFeed:
+            var param: [String: Any] = [:]
+            param["access_token"] = LocalStorage.current.token
+            param["filters"] = "post"
+            param["max_photos"] = 10
+            param["fields"] = "name,photo_200"
+            param["v"] = "5.131"
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+            
+        case .getPhoto:
+            var param: [String: Any] = [:]
+            param["access_token"] = LocalStorage.current.token
+            param["owner_id"] = LocalStorage.current.vkId
+            param["album_id"] = LocalStorage.current.albumID
+            param["extended"] = 1
+            param["rev"] = 0
+            param["count"] = 1000
+            param["v"] = "5.131"
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+            
+        case .getAlbums:
+            var param: [String: Any] = [:]
+            param["access_token"] = LocalStorage.current.token
+            param["owner_id"] = LocalStorage.current.vkId
+            param["need_system"] = 1
+            param["need_covers"] = 1
+            param["v"] = "5.131"
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+            
         }
 }
     

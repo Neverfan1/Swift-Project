@@ -1,26 +1,26 @@
 //
-//  GroupListView.swift
+//  PhotoListView.swift
 //  VKProject
 //
-//  Created by Данила Парамин on 10.08.2022.
+//  Created by Данила Парамин on 16.08.2022.
 //
 
 import SwiftUI
 
-struct GroupListView: View {
+struct PhotoListView: View {
     
 //    @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = GroupListViewModel()
+    @StateObject var viewModel = PhotoListViewModel()
     
     var body: some View {
         VStack{
-            Text("Группы")
+            Text("Фотоальбомы")
                 .bold()
                 .font(.title)
                 .onAppear(perform: onApperSend)
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(viewModel.output.groups) { model in
-                    GroupsCellView(model: model)
+                ForEach(viewModel.output.photo) { model in
+                    PhotoCellView(model: model)
                     Divider()
                 }
             }
@@ -34,7 +34,7 @@ struct GroupListView: View {
     }
 }
 
-extension GroupListView {
+extension PhotoListView {
     
     func onApperSend() {
         viewModel.input.onAppear.send()
@@ -42,9 +42,9 @@ extension GroupListView {
     
 }
 
-struct GroupListView_Previews: PreviewProvider {
+struct PhotoListView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupListView()
+        PhotoListView()
     }
 }
 

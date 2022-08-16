@@ -40,5 +40,29 @@ extension VKAPIService {
             .eraseToAnyPublisher()
     }
     
+    func getPhoto() -> AnyPublisher<[PhotoModel], APIError> {
+        provider.requestPublisher(.getPhoto)
+            .filterSuccessfulStatusCodes()
+            .map(ServerResponse3.self)
+            .map { $0.response.items }
+            .map { PhotoModelMapper().toLocal(list: $0) }
+            .mapError({ _ in
+                    .badQuery
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    func getAlbums() -> AnyPublisher<[AlbumModel], APIError> {
+        provider.requestPublisher(.getAlbums)
+            .filterSuccessfulStatusCodes()
+            .map(ServerResponse4.self)
+            .map { $0.response.items }
+            .map { AlbumModelMapper().toLocal(list: $0) }
+            .mapError({ _ in
+                    .badQuery
+            })
+            .eraseToAnyPublisher()
+    }
+    
 }
 
