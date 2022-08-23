@@ -17,6 +17,10 @@ final class PhotosCoordinator: NavigationCoordinatable {
     @Root var start = makeAlbums
     
     @Route(.modal) var photo = makePhotos
+    
+    init() {
+        print("Я Родился!")
+    }
         
 #if DEBUG
     deinit {
@@ -32,8 +36,9 @@ extension PhotosCoordinator {
         AlbumListView(viewModel: viewModel)
     }
     
-    @ViewBuilder func makePhotos() -> some View {
-        PhotoListView()
+    @ViewBuilder func makePhotos(id: Int) -> some View {
+        let viewModel = PhotoListViewModel(albumID: id)
+        PhotoListView(viewModel: viewModel)
     }
 }
 

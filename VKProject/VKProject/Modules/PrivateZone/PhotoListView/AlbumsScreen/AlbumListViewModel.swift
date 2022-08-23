@@ -139,7 +139,7 @@ final class AlbumListViewModel: ObservableObject {
     func bindAlbumButtonTap() {
         
         input.goToPhoto.sink { [weak self] in
-            self?.router?.goToPhoto()
+            self?.router?.goToPhoto(id: $0)
         }
         .store(in: &cancellable)
     }
@@ -147,7 +147,7 @@ final class AlbumListViewModel: ObservableObject {
     
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
-        let goToPhoto = PassthroughSubject<Void, Never>()
+        let goToPhoto = PassthroughSubject<Int, Never>()
     }
     
     struct Output {

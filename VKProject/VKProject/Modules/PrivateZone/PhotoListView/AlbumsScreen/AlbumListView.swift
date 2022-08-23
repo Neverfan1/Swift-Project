@@ -40,7 +40,8 @@ extension AlbumListView {
         ScrollView(.vertical, showsIndicators: false) {
             PullToRefreshView {onApperSend() }
             ForEach(viewModel.output.album) { model in
-                AlbumsCellView(model: model)
+                AlbumsCellView(model: model,
+                               goToPhoto: viewModel.input.goToPhoto)
                 Divider()
             }
         }

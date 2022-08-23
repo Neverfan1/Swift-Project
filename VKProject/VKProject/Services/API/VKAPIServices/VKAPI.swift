@@ -12,7 +12,7 @@ enum VKAPI {
     case getFriends
     case getGroups
     case getNewsFeed
-    case getPhoto
+    case getPhoto(id: Int)
     case getAlbums
 
     
@@ -73,11 +73,11 @@ extension VKAPI: TargetType {
             param["v"] = "5.131"
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
             
-        case .getPhoto:
+        case let .getPhoto(id):
             var param: [String: Any] = [:]
             param["access_token"] = LocalStorage.current.token
             param["owner_id"] = LocalStorage.current.vkId
-            param["album_id"] = LocalStorage.current.albumID
+            param["album_id"] = id
             param["extended"] = 1
             param["rev"] = 1
             param["offset"] = 0

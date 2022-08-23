@@ -9,13 +9,13 @@ import Foundation
 
 
 protocol AlbumsRouter: AnyObject {
-    func goToPhoto()
+    func goToPhoto(id: Int)
 }
 
 extension PhotosCoordinator: AlbumsRouter {
     
-    func goToPhoto() {
-        self.route(to: \.photo)
+    func goToPhoto(id: Int) {
+        self.route(to: \.photo, id)
     }
     
 }

@@ -8,23 +8,18 @@
 
 import SwiftUI
 import Kingfisher
+import Combine
 
 struct AlbumsCellView: View {
     let model: AlbumModel
-    @StateObject var viewModel = AlbumListViewModel(router: PhotosCoordinator())
-
+    let goToPhoto: PassthroughSubject<Int, Never>
     
     var body: some View {
-        
         Button {
-            LocalStorage.current.albumID = model.id
-            viewModel.input.goToPhoto.send()
+            goToPhoto.send(model.id)
         } label: {
             albums
-
         }
-
-
     }
 }
 
@@ -55,8 +50,8 @@ private extension AlbumsCellView {
 
 }
 
-struct AlbumsCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlbumsCellView(model:.album_mock1())
-    }
-}
+//struct AlbumsCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AlbumsCellView(model:.album_mock1())
+//    }
+//}

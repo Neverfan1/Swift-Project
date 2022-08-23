@@ -40,8 +40,8 @@ extension VKAPIService {
             .eraseToAnyPublisher()
     }
     
-    func getPhoto() -> AnyPublisher<[PhotoModel], APIError> {
-        provider.requestPublisher(.getPhoto)
+    func getPhoto(id: Int) -> AnyPublisher<[PhotoModel], APIError> {
+        provider.requestPublisher(.getPhoto(id: id))
             .filterSuccessfulStatusCodes()
             .map(ServerResponse3.self)
             .map { $0.response.items }

@@ -52,7 +52,6 @@
 		B598DD7128AE39D9006E65D1 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = B598DD7028AE39D9006E65D1 /* Stinsen */; };
 		B598DD7428AE3A4D006E65D1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7328AE3A4D006E65D1 /* MainCoordinator.swift */; };
 		B598DD7928AE3E73006E65D1 /* AlbumsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7828AE3E73006E65D1 /* AlbumsRouter.swift */; };
-		B598DD7B28AE4736006E65D1 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7A28AE4736006E65D1 /* TestView.swift */; };
 		B5BD78B028AB93EE0045432B /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78AF28AB93EE0045432B /* AlbumModel.swift */; };
 		B5BD78B228AB96FA0045432B /* ServerAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B128AB96FA0045432B /* ServerAlbumModel.swift */; };
 		B5BD78B428AB97D80045432B /* AlbumModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78B328AB97D80045432B /* AlbumModelMapper.swift */; };
@@ -118,7 +117,6 @@
 		B598DD6D28AD8EDA006E65D1 /* GroupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoView.swift; sourceTree = "<group>"; };
 		B598DD7328AE3A4D006E65D1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B598DD7828AE3E73006E65D1 /* AlbumsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsRouter.swift; sourceTree = "<group>"; };
-		B598DD7A28AE4736006E65D1 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		B5BD78AF28AB93EE0045432B /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		B5BD78B128AB96FA0045432B /* ServerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAlbumModel.swift; sourceTree = "<group>"; };
 		B5BD78B328AB97D80045432B /* AlbumModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModelMapper.swift; sourceTree = "<group>"; };
@@ -261,6 +259,25 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B516D14528B5528E00AB5E10 /* AllGroupsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B56532E328A3FAA900669546 /* Components */,
+				B516D13228B154C200AB5E10 /* GroupRouter.swift */,
+				B56532DC28A323B100669546 /* GroupListView.swift */,
+				B56532DE28A323CD00669546 /* GroupListViewModel.swift */,
+			);
+			path = AllGroupsScreen;
+			sourceTree = "<group>";
+		};
+		B516D14628B552A300AB5E10 /* GroupInfoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B598DD6D28AD8EDA006E65D1 /* GroupInfoView.swift */,
+			);
+			path = GroupInfoScreen;
+			sourceTree = "<group>";
+		};
 		B56532CF28A31FF000669546 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,10 +302,8 @@
 		B56532DB28A3239200669546 /* GroupListView */ = {
 			isa = PBXGroup;
 			children = (
-				B56532E328A3FAA900669546 /* Components */,
-				B56532DC28A323B100669546 /* GroupListView.swift */,
-				B56532DE28A323CD00669546 /* GroupListViewModel.swift */,
-				B598DD7A28AE4736006E65D1 /* TestView.swift */,
+				B516D14628B552A300AB5E10 /* GroupInfoScreen */,
+				B516D14528B5528E00AB5E10 /* AllGroupsScreen */,
 			);
 			path = GroupListView;
 			sourceTree = "<group>";
@@ -305,8 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				B56532E428A3FACB00669546 /* GroupsCellView.swift */,
-				B598DD6D28AD8EDA006E65D1 /* GroupInfoView.swift */,
-				B516D13228B154C200AB5E10 /* GroupRouter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -662,7 +675,6 @@
 				B5FE082528A2F83F001CA237 /* VKProjectApp.swift in Sources */,
 				B516D12B28B0E43800AB5E10 /* LoginVKView.swift in Sources */,
 				B56532C228A31B3A00669546 /* GroupModel.swift in Sources */,
-				B598DD7B28AE4736006E65D1 /* TestView.swift in Sources */,
 				B598DD7928AE3E73006E65D1 /* AlbumsRouter.swift in Sources */,
 				B516D13128B118DB00AB5E10 /* WebRouter.swift in Sources */,
 				B5BD78B028AB93EE0045432B /* AlbumModel.swift in Sources */,

@@ -43,10 +43,10 @@ extension TabBarCoordinator {
         Text("Groups")
     }
     
-    @ViewBuilder func makePhotos() -> some View {
-        let viewModel = AlbumListViewModel(router: PhotosCoordinator())
-        AlbumListView(viewModel: viewModel)
+    func makePhotos() -> PhotosCoordinator {
+        PhotosCoordinator()
     }
+
     
     @ViewBuilder func makePhotosTab(isActive: Bool) -> some View {
         Image(systemName: "photo.on.rectangle")

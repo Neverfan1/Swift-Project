@@ -14,12 +14,15 @@ final class PhotoListViewModel: ObservableObject {
     
     let apiService = VKAPIService()
     
+    private let albumID: Int
+    
     let input = Input()
     @Published var output = Output()
     
     private var cancellable = Set<AnyCancellable>()
     
-    init() {
+    init(albumID: Int) {
+        self.albumID = albumID
         setubBindings()
     }
     
@@ -31,7 +34,7 @@ final class PhotoListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getPhoto()
+                self.apiService.getPhoto(id: self.albumID)
                     .materialize()
 
                 

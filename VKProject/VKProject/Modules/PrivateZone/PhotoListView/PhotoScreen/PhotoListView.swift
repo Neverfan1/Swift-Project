@@ -10,7 +10,7 @@ import SwiftUI
 struct PhotoListView: View {
     
 //    @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = PhotoListViewModel()
+    @StateObject var viewModel: PhotoListViewModel
     
     var body: some View {
         VStack{
@@ -50,9 +50,9 @@ extension PhotoListView {
     
 }
 
-struct PhotoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoListView()
-    }
-}
+//struct PhotoListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PhotoListView()
+//    }
+//}
 
