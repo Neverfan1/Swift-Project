@@ -16,7 +16,7 @@ final class PhotosCoordinator: NavigationCoordinatable {
     
     @Root var start = makeAlbums
     
-    @Route(.modal) var photo = makePhotos
+    @Route(.push) var photo = makePhotos
     
     init() {
         print("Я Родился!")

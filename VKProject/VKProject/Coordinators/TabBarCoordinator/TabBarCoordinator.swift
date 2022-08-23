@@ -43,8 +43,8 @@ extension TabBarCoordinator {
         Text("Groups")
     }
     
-    func makePhotos() -> PhotosCoordinator {
-        PhotosCoordinator()
+    func makePhotos() -> NavigationViewCoordinator<PhotosCoordinator> {
+        NavigationViewCoordinator(PhotosCoordinator())
     }
 
     
@@ -57,6 +57,7 @@ extension TabBarCoordinator {
         let viewModel = FriendListViewModel()
         FriendsListView(viewModel2: viewModel)
     }
+
     
     @ViewBuilder func makeFriendsTab(isActive: Bool) -> some View {
         Image(systemName: "person.2")

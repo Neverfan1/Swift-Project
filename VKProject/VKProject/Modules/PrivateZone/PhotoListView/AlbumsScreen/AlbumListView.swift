@@ -10,14 +10,17 @@ import SwiftUI
 struct AlbumListView: View {
     
 //    @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = AlbumListViewModel(router: PhotosCoordinator())
+    @StateObject var viewModel: AlbumListViewModel
     
     var body: some View {
         VStack{
-            header
             scrollContent
+                .onAppear(perform: onApperSend)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Альбомы")
 
         }
+
         
 //        .onChange(of: viewModel.output.error) { error in
 //            if error {
@@ -53,9 +56,9 @@ extension AlbumListView {
     
 }
 
-struct AlbumListView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlbumListView()
-    }
-}
+//struct AlbumListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AlbumListView()
+//    }
+//}
 
