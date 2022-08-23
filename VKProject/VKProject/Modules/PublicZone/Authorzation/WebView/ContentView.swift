@@ -11,11 +11,11 @@ struct ContentView: View {
     
     @State private var tagSelection: String? = nil
     
-    @StateObject var viewModel = ContentViewModel()
+    @StateObject var viewModel = WebViewRepresentableModel(router: AuthorizationCoordinator())
     var body: some View {
-        if !viewModel.output.showFriends {
             webView
-        } else {
+
+//         else {
 //            NavigationView {
 //                VStack {
 //                  // ссылки на View с привязкой к teg'у
@@ -48,41 +48,41 @@ struct ContentView: View {
 //            }
 //        }
             
-                TabView{
-                    GroupListView()
-                        .tabItem {
-                                Image(systemName: "person.3")
-                                Text("Группы")
-                        }
-                    TestView()
-                                .tabItem {
-                                        Image(systemName: "person.3")
-                                        Text("Группы Инфо")
-                                }
-                    
-                    FriendsListView()
-                            .tabItem {
-                                    Image(systemName: "person.2")
-                                    Text("Друзья")
-                            }
-                    SettingsListView()
-                                .tabItem {
-                                        Image(systemName: "gear")
-                                        Text("Настройки")
-                                }
-                    AlbumListView()
-                                .tabItem {
-                                        Image(systemName: "photo.on.rectangle")
-                                        Text("Фотоальбомы")
-                                }
-                    PhotoListView()
-                                .tabItem {
-                                        Image(systemName: "photo")
-                                        Text("Фото")
-                                }
-
-                }
-        }
+//                TabView{
+//                    GroupListView()
+//                        .tabItem {
+//                                Image(systemName: "person.3")
+//                                Text("Группы")
+//                        }
+//                    TestView()
+//                                .tabItem {
+//                                        Image(systemName: "person.3")
+//                                        Text("Группы Инфо")
+//                                }
+//
+//                    FriendsListView()
+//                            .tabItem {
+//                                    Image(systemName: "person.2")
+//                                    Text("Друзья")
+//                            }
+//                    SettingsListView()
+//                                .tabItem {
+//                                        Image(systemName: "gear")
+//                                        Text("Настройки")
+//                                }
+//                    AlbumListView()
+//                                .tabItem {
+//                                        Image(systemName: "photo.on.rectangle")
+//                                        Text("Фотоальбомы")
+//                                }
+//                    PhotoListView()
+//                                .tabItem {
+//                                        Image(systemName: "photo")
+//                                        Text("Фото")
+//                                }
+//
+//                }
+//        }
     }
 }
 

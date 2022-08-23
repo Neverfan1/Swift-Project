@@ -8,7 +8,31 @@
 import Foundation
 import Combine
 
-final class ContentViewModel: ObservableObject {
+final class WebViewRepresentableModel: ObservableObject {
+    
+    let input = Input()
+    @Published var output = Output()
+    private weak var router: WebRouter?
+    var cancellable = Set<AnyCancellable>()
+    
+    init(router: WebRouter?) {
+        bind()
+        self.router = router
+        complited()
+    }
+    
+    func bind(){
+        input.onComplitedWebView
+            .sink{ [weak self] in
+                self?.output.showFriends = true
+            }
+            .store(in: &cancellable)
+    }
+    
+    func complited (){
+        LocalStorage.current.isComplited = true
+        AuthenticationLocalService.shared.status.send(true)
+    }
     
     var url: URL? {
         guard var urlComponents = URLComponents(string: Consts.VK.vkURL) else {
@@ -30,25 +54,10 @@ final class ContentViewModel: ObservableObject {
     
     var token = LocalStorage.current.token
     
-    let input = Input()
-    @Published var output = Output()
-    
-    var cancellable = Set<AnyCancellable>()
-    
-    init() {
-        bind()
-    }
-    
-    func bind() {
-        input.onComplitedWebView
-            .sink { [weak self] in
-                self?.output.showFriends = true
-            }
-            .store(in: &cancellable)
-    }
+   
 }
 
-extension ContentViewModel {
+extension WebViewRepresentableModel{
     
     struct Input {
         let onComplitedWebView = PassthroughSubject<Void, Never>()
@@ -56,6 +65,8 @@ extension ContentViewModel {
     
     struct Output {
         var showFriends = LocalStorage.current.token != nil
+        
+        
     }
 }
 

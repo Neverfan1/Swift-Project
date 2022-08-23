@@ -10,12 +10,13 @@ import SwiftUI
 struct AlbumListView: View {
     
 //    @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = AlbumListViewModel()
+    @StateObject var viewModel = AlbumListViewModel(router: PhotosCoordinator())
     
     var body: some View {
         VStack{
             header
             scrollContent
+
         }
         
 //        .onChange(of: viewModel.output.error) { error in

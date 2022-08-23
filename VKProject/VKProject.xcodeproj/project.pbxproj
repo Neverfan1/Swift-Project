@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B516D12328B0E1BC00AB5E10 /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D12228B0E1BC00AB5E10 /* AuthorizationCoordinator.swift */; };
+		B516D12628B0E20400AB5E10 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D12528B0E20400AB5E10 /* TabBarCoordinator.swift */; };
+		B516D12B28B0E43800AB5E10 /* LoginVKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D12A28B0E43800AB5E10 /* LoginVKView.swift */; };
+		B516D12D28B0E4A100AB5E10 /* LoginVKViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D12C28B0E4A100AB5E10 /* LoginVKViewModel.swift */; };
+		B516D12F28B0E4BB00AB5E10 /* LoginVKRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D12E28B0E4BB00AB5E10 /* LoginVKRouter.swift */; };
+		B516D13128B118DB00AB5E10 /* WebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D13028B118DB00AB5E10 /* WebRouter.swift */; };
+		B516D13328B154C200AB5E10 /* GroupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D13228B154C200AB5E10 /* GroupRouter.swift */; };
+		B516D13928B1561400AB5E10 /* PhotosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D13828B1561400AB5E10 /* PhotosCoordinator.swift */; };
+		B516D13E28B17F0F00AB5E10 /* GroupsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B516D13D28B17F0F00AB5E10 /* GroupsCoordinator.swift */; };
 		B56532B428A30D7700669546 /* ServerFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532B328A30D7700669546 /* ServerFriendModel.swift */; };
 		B56532B628A30DB800669546 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532B528A30DB800669546 /* FriendModel.swift */; };
 		B56532B828A30DF300669546 /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532B728A30DF300669546 /* BaseModelMapper.swift */; };
@@ -24,7 +33,7 @@
 		B56532D128A3200400669546 /* RepresentableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532D028A3200400669546 /* RepresentableWebView.swift */; };
 		B56532D428A3209000669546 /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532D328A3209000669546 /* FriendsListView.swift */; };
 		B56532D628A320AA00669546 /* FriendsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532D528A320AA00669546 /* FriendsListViewModel.swift */; };
-		B56532D828A3217100669546 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532D728A3217100669546 /* ContentViewModel.swift */; };
+		B56532D828A3217100669546 /* WebViewRepresentableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532D728A3217100669546 /* WebViewRepresentableModel.swift */; };
 		B56532DA28A3218900669546 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532D928A3218900669546 /* ContentView.swift */; };
 		B56532DD28A323B100669546 /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532DC28A323B100669546 /* GroupListView.swift */; };
 		B56532DF28A323CD00669546 /* GroupListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56532DE28A323CD00669546 /* GroupListViewModel.swift */; };
@@ -42,7 +51,6 @@
 		B598DD6E28AD8EDA006E65D1 /* GroupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD6D28AD8EDA006E65D1 /* GroupInfoView.swift */; };
 		B598DD7128AE39D9006E65D1 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = B598DD7028AE39D9006E65D1 /* Stinsen */; };
 		B598DD7428AE3A4D006E65D1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7328AE3A4D006E65D1 /* MainCoordinator.swift */; };
-		B598DD7728AE3AAD006E65D1 /* PhotoAlbumsCoordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7628AE3AAD006E65D1 /* PhotoAlbumsCoordinators.swift */; };
 		B598DD7928AE3E73006E65D1 /* AlbumsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7828AE3E73006E65D1 /* AlbumsRouter.swift */; };
 		B598DD7B28AE4736006E65D1 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B598DD7A28AE4736006E65D1 /* TestView.swift */; };
 		B5BD78B028AB93EE0045432B /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD78AF28AB93EE0045432B /* AlbumModel.swift */; };
@@ -67,6 +75,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B516D12228B0E1BC00AB5E10 /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		B516D12528B0E20400AB5E10 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		B516D12A28B0E43800AB5E10 /* LoginVKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVKView.swift; sourceTree = "<group>"; };
+		B516D12C28B0E4A100AB5E10 /* LoginVKViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVKViewModel.swift; sourceTree = "<group>"; };
+		B516D12E28B0E4BB00AB5E10 /* LoginVKRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVKRouter.swift; sourceTree = "<group>"; };
+		B516D13028B118DB00AB5E10 /* WebRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRouter.swift; sourceTree = "<group>"; };
+		B516D13228B154C200AB5E10 /* GroupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRouter.swift; sourceTree = "<group>"; };
+		B516D13828B1561400AB5E10 /* PhotosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCoordinator.swift; sourceTree = "<group>"; };
+		B516D13D28B17F0F00AB5E10 /* GroupsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCoordinator.swift; sourceTree = "<group>"; };
 		B56532B328A30D7700669546 /* ServerFriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFriendModel.swift; sourceTree = "<group>"; };
 		B56532B528A30DB800669546 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		B56532B728A30DF300669546 /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
@@ -84,7 +101,7 @@
 		B56532D028A3200400669546 /* RepresentableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableWebView.swift; sourceTree = "<group>"; };
 		B56532D328A3209000669546 /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
 		B56532D528A320AA00669546 /* FriendsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewModel.swift; sourceTree = "<group>"; };
-		B56532D728A3217100669546 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		B56532D728A3217100669546 /* WebViewRepresentableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentableModel.swift; sourceTree = "<group>"; };
 		B56532D928A3218900669546 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B56532DC28A323B100669546 /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		B56532DE28A323CD00669546 /* GroupListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewModel.swift; sourceTree = "<group>"; };
@@ -100,7 +117,6 @@
 		B598DD6B28AD7D63006E65D1 /* Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
 		B598DD6D28AD8EDA006E65D1 /* GroupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoView.swift; sourceTree = "<group>"; };
 		B598DD7328AE3A4D006E65D1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		B598DD7628AE3AAD006E65D1 /* PhotoAlbumsCoordinators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumsCoordinators.swift; sourceTree = "<group>"; };
 		B598DD7828AE3E73006E65D1 /* AlbumsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsRouter.swift; sourceTree = "<group>"; };
 		B598DD7A28AE4736006E65D1 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		B5BD78AF28AB93EE0045432B /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
@@ -138,10 +154,120 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B516D12128B0E1AB00AB5E10 /* Authorzation */ = {
+			isa = PBXGroup;
+			children = (
+				B516D12228B0E1BC00AB5E10 /* AuthorizationCoordinator.swift */,
+			);
+			path = Authorzation;
+			sourceTree = "<group>";
+		};
+		B516D12428B0E1F400AB5E10 /* TabBarCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B516D12528B0E20400AB5E10 /* TabBarCoordinator.swift */,
+			);
+			path = TabBarCoordinator;
+			sourceTree = "<group>";
+		};
+		B516D12728B0E2B100AB5E10 /* Authorzation */ = {
+			isa = PBXGroup;
+			children = (
+				B516D12828B0E3EA00AB5E10 /* LoginVKScreen */,
+				B56532CF28A31FF000669546 /* WebView */,
+			);
+			path = Authorzation;
+			sourceTree = "<group>";
+		};
+		B516D12828B0E3EA00AB5E10 /* LoginVKScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B516D12A28B0E43800AB5E10 /* LoginVKView.swift */,
+				B516D12C28B0E4A100AB5E10 /* LoginVKViewModel.swift */,
+				B516D12E28B0E4BB00AB5E10 /* LoginVKRouter.swift */,
+			);
+			path = LoginVKScreen;
+			sourceTree = "<group>";
+		};
+		B516D13728B155F000AB5E10 /* PhotosCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B516D13828B1561400AB5E10 /* PhotosCoordinator.swift */,
+			);
+			path = PhotosCoordinator;
+			sourceTree = "<group>";
+		};
+		B516D13C28B17EF300AB5E10 /* GroupsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B516D13D28B17F0F00AB5E10 /* GroupsCoordinator.swift */,
+			);
+			path = GroupsCoordinator;
+			sourceTree = "<group>";
+		};
+		B516D13F28B4E8E800AB5E10 /* PublicZone */ = {
+			isa = PBXGroup;
+			children = (
+				B516D12728B0E2B100AB5E10 /* Authorzation */,
+			);
+			path = PublicZone;
+			sourceTree = "<group>";
+		};
+		B516D14028B4E8FC00AB5E10 /* PrivateZone */ = {
+			isa = PBXGroup;
+			children = (
+				B5FE084C28A2FCAA001CA237 /* SettingsScreen */,
+				B56532D228A3202900669546 /* FriendListView */,
+				B56532DB28A3239200669546 /* GroupListView */,
+				B58DCCFC28AB033E00116A6E /* PhotoListView */,
+			);
+			path = PrivateZone;
+			sourceTree = "<group>";
+		};
+		B516D14128B4E97900AB5E10 /* PhotoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B516D14328B4E9AD00AB5E10 /* Components */,
+				B5BD78B928AB9F9F0045432B /* PhotoListView.swift */,
+				B58DCCFD28AB037600116A6E /* PhotoListViewModel.swift */,
+			);
+			path = PhotoScreen;
+			sourceTree = "<group>";
+		};
+		B516D14228B4E98600AB5E10 /* AlbumsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B516D14428B4E9BD00AB5E10 /* Components */,
+				B58DCCFF28AB03AE00116A6E /* AlbumListView.swift */,
+				B5BD78B728AB9B690045432B /* AlbumListViewModel.swift */,
+			);
+			path = AlbumsScreen;
+			sourceTree = "<group>";
+		};
+		B516D14328B4E9AD00AB5E10 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B58DCD0228AB042600116A6E /* PhotoCellView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B516D14428B4E9BD00AB5E10 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5BD78B528AB9A350045432B /* AlbumsCellView.swift */,
+				B598DD7828AE3E73006E65D1 /* AlbumsRouter.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B56532CF28A31FF000669546 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				B56532D928A3218900669546 /* ContentView.swift */,
 				B56532D028A3200400669546 /* RepresentableWebView.swift */,
+				B56532D728A3217100669546 /* WebViewRepresentableModel.swift */,
+				B516D13028B118DB00AB5E10 /* WebRouter.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -180,6 +306,7 @@
 			children = (
 				B56532E428A3FACB00669546 /* GroupsCellView.swift */,
 				B598DD6D28AD8EDA006E65D1 /* GroupInfoView.swift */,
+				B516D13228B154C200AB5E10 /* GroupRouter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,40 +322,22 @@
 		B58DCCFC28AB033E00116A6E /* PhotoListView */ = {
 			isa = PBXGroup;
 			children = (
-				B58DCD0128AB040E00116A6E /* Components */,
-				B5BD78B928AB9F9F0045432B /* PhotoListView.swift */,
-				B58DCCFD28AB037600116A6E /* PhotoListViewModel.swift */,
-				B58DCCFF28AB03AE00116A6E /* AlbumListView.swift */,
-				B5BD78B728AB9B690045432B /* AlbumListViewModel.swift */,
+				B516D14228B4E98600AB5E10 /* AlbumsScreen */,
+				B516D14128B4E97900AB5E10 /* PhotoScreen */,
 			);
 			path = PhotoListView;
-			sourceTree = "<group>";
-		};
-		B58DCD0128AB040E00116A6E /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				B58DCD0228AB042600116A6E /* PhotoCellView.swift */,
-				B5BD78B528AB9A350045432B /* AlbumsCellView.swift */,
-				B598DD7828AE3E73006E65D1 /* AlbumsRouter.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		B598DD7228AE3A35006E65D1 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				B598DD7328AE3A4D006E65D1 /* MainCoordinator.swift */,
-				B598DD7528AE3A66006E65D1 /* PhotoAlbums */,
+				B516D13C28B17EF300AB5E10 /* GroupsCoordinator */,
+				B516D13728B155F000AB5E10 /* PhotosCoordinator */,
+				B516D12428B0E1F400AB5E10 /* TabBarCoordinator */,
+				B516D12128B0E1AB00AB5E10 /* Authorzation */,
 			);
 			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		B598DD7528AE3A66006E65D1 /* PhotoAlbums */ = {
-			isa = PBXGroup;
-			children = (
-				B598DD7628AE3AAD006E65D1 /* PhotoAlbumsCoordinators.swift */,
-			);
-			path = PhotoAlbums;
 			sourceTree = "<group>";
 		};
 		B5FE081828A2F83F001CA237 = {
@@ -283,8 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				B5FE082428A2F83F001CA237 /* VKProjectApp.swift */,
-				B56532D928A3218900669546 /* ContentView.swift */,
-				B56532D728A3217100669546 /* ContentViewModel.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -330,11 +437,8 @@
 		B5FE084028A2FAFE001CA237 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B58DCCFC28AB033E00116A6E /* PhotoListView */,
-				B56532DB28A3239200669546 /* GroupListView */,
-				B56532D228A3202900669546 /* FriendListView */,
-				B56532CF28A31FF000669546 /* WebView */,
-				B5FE084C28A2FCAA001CA237 /* SettingsScreen */,
+				B516D14028B4E8FC00AB5E10 /* PrivateZone */,
+				B516D13F28B4E8E800AB5E10 /* PublicZone */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -533,17 +637,20 @@
 				B56532C028A31B0900669546 /* GroupModelMapper.swift in Sources */,
 				B56532DD28A323B100669546 /* GroupListView.swift in Sources */,
 				B598DD6E28AD8EDA006E65D1 /* GroupInfoView.swift in Sources */,
+				B516D12628B0E20400AB5E10 /* TabBarCoordinator.swift in Sources */,
 				B56532B828A30DF300669546 /* BaseModelMapper.swift in Sources */,
 				B56532CE28A31F2400669546 /* VKAPIService.swift in Sources */,
+				B516D12328B0E1BC00AB5E10 /* AuthorizationCoordinator.swift in Sources */,
 				B5BD78B628AB9A350045432B /* AlbumsCellView.swift in Sources */,
+				B516D13328B154C200AB5E10 /* GroupRouter.swift in Sources */,
 				B5FE084B28A2FC67001CA237 /* AppButtonsStyleSettings.swift in Sources */,
 				B56532CC28A31D7F00669546 /* Consts.swift in Sources */,
 				B5BD78B428AB97D80045432B /* AlbumModelMapper.swift in Sources */,
 				B598DD7428AE3A4D006E65D1 /* MainCoordinator.swift in Sources */,
 				B5BD78B828AB9B690045432B /* AlbumListViewModel.swift in Sources */,
-				B598DD7728AE3AAD006E65D1 /* PhotoAlbumsCoordinators.swift in Sources */,
 				B56532C628A31D0C00669546 /* Provider.swift in Sources */,
 				B56532E228A3BE8A00669546 /* FriendsCellView.swift in Sources */,
+				B516D12F28B0E4BB00AB5E10 /* LoginVKRouter.swift in Sources */,
 				B5BD78B228AB96FA0045432B /* ServerAlbumModel.swift in Sources */,
 				B5FE085928A2FE3C001CA237 /* UserModel.swift in Sources */,
 				B5FE084F28A2FCF0001CA237 /* SettingsListView.swift in Sources */,
@@ -553,13 +660,16 @@
 				B56532C828A31D2A00669546 /* APIError.swift in Sources */,
 				B56532B628A30DB800669546 /* FriendModel.swift in Sources */,
 				B5FE082528A2F83F001CA237 /* VKProjectApp.swift in Sources */,
+				B516D12B28B0E43800AB5E10 /* LoginVKView.swift in Sources */,
 				B56532C228A31B3A00669546 /* GroupModel.swift in Sources */,
 				B598DD7B28AE4736006E65D1 /* TestView.swift in Sources */,
 				B598DD7928AE3E73006E65D1 /* AlbumsRouter.swift in Sources */,
+				B516D13128B118DB00AB5E10 /* WebRouter.swift in Sources */,
 				B5BD78B028AB93EE0045432B /* AlbumModel.swift in Sources */,
 				B56532DF28A323CD00669546 /* GroupListViewModel.swift in Sources */,
 				B56532DA28A3218900669546 /* ContentView.swift in Sources */,
-				B56532D828A3217100669546 /* ContentViewModel.swift in Sources */,
+				B56532D828A3217100669546 /* WebViewRepresentableModel.swift in Sources */,
+				B516D12D28B0E4A100AB5E10 /* LoginVKViewModel.swift in Sources */,
 				B598DD6C28AD7D63006E65D1 /* Refresh.swift in Sources */,
 				B5BD78BA28AB9F9F0045432B /* PhotoListView.swift in Sources */,
 				B56532D628A320AA00669546 /* FriendsListViewModel.swift in Sources */,
@@ -568,10 +678,12 @@
 				B56532BA28A30E4500669546 /* FriendModelMapper.swift in Sources */,
 				B56532CA28A31D5E00669546 /* VKAPI.swift in Sources */,
 				B5FE085328A2FD7E001CA237 /* SettingsCellView.swift in Sources */,
+				B516D13E28B17F0F00AB5E10 /* GroupsCoordinator.swift in Sources */,
 				B56532C428A31CB600669546 /* LocalStorage.swift in Sources */,
 				B58DCCEF28A6E1DB00116A6E /* NetworkImage.swift in Sources */,
 				B58DCCFB28AACF5A00116A6E /* PhotoModelMapper.swift in Sources */,
 				B58DCD0028AB03AE00116A6E /* AlbumListView.swift in Sources */,
+				B516D13928B1561400AB5E10 /* PhotosCoordinator.swift in Sources */,
 				B56532E528A3FACB00669546 /* GroupsCellView.swift in Sources */,
 				B56532BE28A30F4E00669546 /* ServerGroupModel.swift in Sources */,
 				B5FE085128A2FD3D001CA237 /* SettingsListViewModel.swift in Sources */,

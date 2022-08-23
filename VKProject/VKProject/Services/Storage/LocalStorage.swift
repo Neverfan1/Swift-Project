@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 
 enum LocalStorageKey: String {
@@ -13,6 +14,7 @@ enum LocalStorageKey: String {
     case vkId
     case expiresIn
     case albumID
+    case isComplited
 }
 
 struct LocalStorage {
@@ -63,6 +65,25 @@ struct LocalStorage {
         set{
             userDefaults.set(newValue, forKey: LocalStorageKey.albumID.rawValue)
         }
+    }
+    
+    var isComplited: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "isComplited")
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "isComplited")
+        }
+    }
+}
+
+struct AuthenticationLocalService {
+    
+    static var shared = AuthenticationLocalService()
+    let status: CurrentValueSubject<Bool, Never>
+    
+    private init() {
+        self.status = CurrentValueSubject<Bool, Never>(LocalStorage.current.isComplited)
     }
 }
 

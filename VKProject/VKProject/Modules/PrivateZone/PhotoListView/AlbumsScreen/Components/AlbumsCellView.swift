@@ -11,12 +11,14 @@ import Kingfisher
 
 struct AlbumsCellView: View {
     let model: AlbumModel
+    @StateObject var viewModel = AlbumListViewModel(router: PhotosCoordinator())
 
     
     var body: some View {
         
         Button {
             LocalStorage.current.albumID = model.id
+            viewModel.input.goToPhoto.send()
         } label: {
             albums
 

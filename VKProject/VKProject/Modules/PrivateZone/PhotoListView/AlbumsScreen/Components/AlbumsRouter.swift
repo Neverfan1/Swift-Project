@@ -7,11 +7,13 @@
 
 import Foundation
 
+
 protocol AlbumsRouter: AnyObject {
     func goToPhoto()
 }
 
-extension PhotoAlbumsCoordinator: AlbumsRouter {
+extension PhotosCoordinator: AlbumsRouter {
+    
     func goToPhoto() {
         self.route(to: \.photo)
     }

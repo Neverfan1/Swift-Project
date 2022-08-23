@@ -68,7 +68,6 @@ struct WebViewRepresentable: UIViewRepresentable {
                         }
                     }
                 }
-                
                 onComplited.send()
             }
         }

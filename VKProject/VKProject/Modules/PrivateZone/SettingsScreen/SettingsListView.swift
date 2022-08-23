@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsListView: View {
-    @StateObject var webViewModel = ContentViewModel()
     
     @StateObject private var viewModel = SettingsListViewModel()
     
@@ -135,14 +134,24 @@ private extension SettingsListView{
     
     var exitButton: some View{
         
-        Button("Выйти"){}
-            .foregroundColor(Color.red)
-            .frame(maxWidth: .infinity,alignment: .leading)
-            .padding(.top, 30)
-            .padding(.leading, 21)
-            .padding(.bottom, 50)
-            .font(.title3)
+    
+        Button {
+            LocalStorage.current.isComplited = false
+            AuthenticationLocalService.shared.status.send(false)
+//            LocalStorage.current.vkId = nil
+//            LocalStorage.current.token = nil
+        } label: {
+            Text("Exit")
+                .foregroundColor(Color.red)
+                .frame(maxWidth: .infinity,alignment: .leading)
+                .padding(.top, 30)
+                .padding(.leading, 21)
+                .padding(.bottom, 50)
+                .font(.title3)
+        }
+
     }
+    
 }
 
 

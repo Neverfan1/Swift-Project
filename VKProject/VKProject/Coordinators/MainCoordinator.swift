@@ -13,25 +13,39 @@ final class MainCoordinator: NavigationCoordinatable {
     
     var stack: NavigationStack<MainCoordinator>
     
-    @Root var photoAlbums = makePhotoAlbums
-
-    //@Root var general = makeChildGeneral
-    
-    @ViewBuilder func sharedView(_ view: AnyView) -> some View {
-        view
-    }
+    @Root var authorization = makeAuthorization
+    @Root var general = makeTabBar
     
     init() {
-        stack = NavigationStack(initial: \MainCoordinator.photoAlbums)
+        if AuthenticationLocalService.shared.status.value {
+            stack = NavigationStack(initial: \MainCoordinator.general)
+        } else {
+            stack = NavigationStack(initial: \MainCoordinator.authorization)
+        }
+    }
+    
+    @ViewBuilder func customize(_ view: AnyView) -> some View {
+        view
+            .onReceive(AuthenticationLocalService.shared.status) { status in
+                if status {
+                    self.root(\.general)
+                } else {
+                    self.root(\.authorization)
+                }
+            }
     }
 }
 
 extension MainCoordinator {
     
     
-    func makePhotoAlbums() -> NavigationViewCoordinator<PhotoAlbumsCoordinator> {
-        let coordinator = PhotoAlbumsCoordinator()
+    func makeAuthorization() -> NavigationViewCoordinator<AuthorizationCoordinator> {
+        let coordinator = AuthorizationCoordinator()
         let stack = NavigationViewCoordinator(coordinator)
         return stack
+    }
+    
+    func makeTabBar() -> TabBarCoordinator {
+        TabBarCoordinator()
     }
 }

@@ -11,8 +11,6 @@ struct FriendsListView: View {
     
     @StateObject var viewModel2 = FriendListViewModel()
     
-    @State private var button1 = false
-    @State private var button2 = true
     @State private var isEnabled = false
     
     var body: some View {
@@ -31,8 +29,6 @@ extension FriendsListView {
     var onlineButton: some View{
         Button("Онлайн") {
             isEnabled = true
-            button1 = true
-            button2 = false
             
         }
         .padding(5)
@@ -45,8 +41,6 @@ extension FriendsListView {
         
         Button("Все"){
             isEnabled = false
-            button1 = false
-            button2 = true
         }
         .padding(5)
         .font(.caption)
@@ -82,11 +76,11 @@ extension FriendsListView {
         ScrollView(.vertical, showsIndicators: false) {
             PullToRefreshView {onApperSend2() }
             ForEach(viewModel2.output.friends) { model in
-                if model.online == 1 && button1{
+                if model.online == 1 && isEnabled{
                     FriendsCellView(model: model)
                     Divider()
                 }
-                if button2{
+                if !isEnabled{
                     FriendsCellView(model: model)
                     Divider()
                 }
