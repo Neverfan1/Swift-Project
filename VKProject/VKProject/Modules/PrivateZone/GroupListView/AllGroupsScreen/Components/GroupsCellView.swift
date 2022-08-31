@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
-import Kingfisher
+import Combine
 
 struct GroupsCellView: View {
     let model: GroupModel
-
+    let goToInfo: PassthroughSubject<GroupModel, Never>
+    
     
     var body: some View {
-        Button(action: {}) {
-            
+        Button {
+            goToInfo.send(model)
+        } label: {
             HStack{
                 groupPhoto
-                
                 VStack(alignment: .leading){
-
                     groupName
                     activity
                 }
@@ -27,19 +27,15 @@ struct GroupsCellView: View {
             }
             .padding()
         }
-
     }
 }
 
 private extension GroupsCellView {
     var groupPhoto: some View{
-//        NetworkImage(imageURL: model.photo200, placeholderImage: UImage(systemName: "trash"))
-        KFImage(URL(string:model.photo200))
-            .renderingMode(.original)
-            .resizable()
-            .frame(width: 43, height: 43)
-            .cornerRadius(100)
-
+        NetworkImage(imageURL: URL(string:model.photo200),
+                     width: 43,
+                     height: 43,
+                     cornerRadius: 100)
     }
     
     var groupName: some View{
@@ -50,20 +46,19 @@ private extension GroupsCellView {
     }
     
     var activity: some View{
-
-            Text(model.activity)
-                .lineLimit(1)
-                .truncationMode(.tail)
-                .font(.caption2)
-                .foregroundColor(.black)
-                .opacity(0.4)
-
-    }
-
-}
-
-struct GroupsCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupsCellView(model: .group_mock1())
+        
+        Text(model.activity)
+            .lineLimit(1)
+            .truncationMode(.tail)
+            .font(.caption2)
+            .foregroundColor(.black)
+            .opacity(0.4)
+        
     }
 }
+
+//struct GroupsCellView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupsCellView(model: .group_mock1())
+//    }
+//}

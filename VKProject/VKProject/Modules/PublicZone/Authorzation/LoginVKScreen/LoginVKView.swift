@@ -15,7 +15,7 @@ struct LoginVKView: View {
             Button {
                 viewModel.input.authButtonTap.send()
             } label: {
-                Text("Авторизоваться через VKID")
+                Text(Strings.authorization)
             }
 
         }

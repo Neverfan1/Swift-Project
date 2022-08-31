@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PhotoListView: View {
     
-//    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: PhotoListViewModel
     
     var body: some View {
@@ -17,18 +16,12 @@ struct PhotoListView: View {
             header
             scrollConten
         }
-        
-//        .onChange(of: viewModel.output.error) { error in
-//            if error {
-//                presentationMode.wrappedValue.dismiss()
-//            }
-//        }
     }
 }
 
 extension PhotoListView {
     var header: some View{
-        Text("Фото")
+        Text(Strings.photo)
             .bold()
             .font(.title)
             .onAppear(perform: onApperSend)

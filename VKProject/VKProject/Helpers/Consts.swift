@@ -8,7 +8,7 @@
 import Foundation
 
 struct Consts {
-        
+    
     struct VK {
         static let vkURL = "https://oauth.vk.com/authorize"
         static let clientIDKey = "client_id"
@@ -26,6 +26,21 @@ struct Consts {
     
     struct MethodVK {
         static let baseVkURL = "https://api.vk.com"
+        static let version = "5.131"
+    }
+    
+    struct UserCounters{
+        static  let albums = "albums"
+        static  let audios = "audios"
+        static  let followers = "followers"
+        static  let friends = "friends"
+        static  let onlineFriends = "online_friends"
+        static  let pages = "pages"
+        static  let photos = "photos"
+        static  let videos = "videos"
+        static  let mutualFriends = "mutual_friends"
+        
     }
     
 }
+

@@ -12,18 +12,24 @@ import CombineExt
 final class FriendListViewModel: ObservableObject {
     
     let apiService = VKAPIService()
+    private weak var router: FriendsRouter?
     
-    let input = Input()
+    let input: Input
     @Published var output = Output()
     
     private var cancellable = Set<AnyCancellable>()
     
-    init() {
+    init(router: FriendsRouter?) {
+        self.router = router
+        self.input = Input()
+        self.output = Output()
+        
         setubBindings()
     }
     
     func setubBindings() {
         bindRequest()
+        bindFriendsButtonTap()
     }
     
     func bindRequest() {
@@ -52,15 +58,24 @@ final class FriendListViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellable)
-    
+        
     }
     
+    
+    func bindFriendsButtonTap() {
+        
+        input.goToUser.sink { [weak self] in
+            self?.router?.goToUser(id: $0)
+        }
+        .store(in: &cancellable)
+    }
 }
 
 extension FriendListViewModel {
     
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
+        let goToUser = PassthroughSubject<Int, Never>()
     }
     
     struct Output {

@@ -18,7 +18,7 @@ struct GroupModel: Identifiable{
     let photo200: String
     let activity: String
     let membersCount: Int
-    let ageLimits: String
+    let ageLimits: AgeLimit
     
         
 }
@@ -36,7 +36,7 @@ extension GroupModel{
                    photo200:"https://www.interfax.ru/ftproot/photos/photostory/2022/04/29/week/week7_1100.jpg",
                    activity: "activity",
         membersCount: 100,
-        ageLimits: "16+")
+                   ageLimits: .tineger)
     }
     
 }

@@ -37,6 +37,7 @@ extension VKAPIService {
             .mapError({ _ in
                     .badQuery
             })
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
@@ -60,6 +61,20 @@ extension VKAPIService {
             .map { AlbumModelMapper().toLocal(list: $0) }
             .mapError({ _ in
                     .badQuery
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    func getUser(id: Int) -> AnyPublisher<UserModel, APIError> {
+        provider.requestPublisher(.getUser(userID: id))
+            .filterSuccessfulStatusCodes()
+            .map(ServerResponse5.self)
+            .map { $0.response }
+            .map { UserModelMapper().toLocal(list: $0).first! }
+            .mapError({ error in
+                print(error)
+
+                    return .badQuery
             })
             .eraseToAnyPublisher()
     }

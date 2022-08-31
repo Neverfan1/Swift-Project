@@ -9,107 +9,100 @@ import SwiftUI
 
 struct FriendsListView: View {
     
-    @StateObject var viewModel2 = FriendListViewModel()
+    @StateObject var viewModel: FriendListViewModel
+    
+    @State private var text = ""
     
     @State private var isEnabled = false
     
     var body: some View {
+        
         VStack{
-            header
-            buttons
             scrollContent
             
         }
+        .onAppear(perform: onApperSend)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(Strings.friends)
+        
         
     }
+    
 }
 
 extension FriendsListView {
     
     var onlineButton: some View{
-        Button("Онлайн") {
+        Button(Strings.online) {
             isEnabled = true
             
         }
         .padding(5)
         .font(.caption)
         .foregroundColor(.black.opacity(0.4))
+        .padding(.horizontal, 7)
         
     }
     
     var allButton: some View{
-        
-        Button("Все"){
+        Button(Strings.all) {
             isEnabled = false
         }
         .padding(5)
         .font(.caption)
         .foregroundColor(.black.opacity(0.4))
-    }
-    
-    var header: some View{
-        Text("Друзья")
-            .bold()
-            .font(.title)
-            .onAppear(perform: onApperSend2)
+        .padding(.horizontal, 7)
     }
     
     var buttons: some View{
         HStack{
             if isEnabled{
-                allButton
-                onlineButton.background(Color.gray)
+                allButton.padding(.horizontal, 7)
+                Spacer()
+                onlineButton.background(Color.gray).cornerRadius(10).padding(.horizontal, 7)
                 
             }
             else{
-                allButton.background(Color.gray)
-                onlineButton
+                allButton.background(Color.gray).cornerRadius(10).padding(.horizontal, 7)
+                Spacer()
+                onlineButton.padding(.horizontal, 7)
+                
             }
             
         }
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(30)
     }
     
     var scrollContent: some View{
-        
         ScrollView(.vertical, showsIndicators: false) {
-            PullToRefreshView {onApperSend2() }
-            ForEach(viewModel2.output.friends) { model in
-                if model.online == 1 && isEnabled{
-                    FriendsCellView(model: model)
-                    Divider()
+            PullToRefreshView {onApperSend() }
+            SearchBar(text: $text)
+            buttons
+            ForEach(text == "" ?  viewModel.output.friends:
+                        viewModel.output.friends.filter{
+                $0.fullName.lowercased().contains(text.lowercased())}) { model in
+                    if model.online == 1 && isEnabled{
+                        FriendsCellView(model: model, goToUser: viewModel.input.goToUser)
+                        Divider()
+                    }
+                    if !isEnabled{
+                        FriendsCellView(model: model, goToUser: viewModel.input.goToUser)
+                        Divider()
+                    }
                 }
-                if !isEnabled{
-                    FriendsCellView(model: model)
-                    Divider()
-                }
-            }
         }
     }
     
     
     
-    func onApperSend2() {
-        viewModel2.input.onAppear.send()
+    func onApperSend() {
+        viewModel.input.onAppear.send()
     }
     
 }
 
-struct FriendsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendsListView()
-    }
-}
-//
-//var online: some View{
-//    ScrollView(.vertical, showsIndicators: false) {
-//        ForEach(viewModel2.output.friends) { model in
-//            if model.online == 1{
-//            FriendsCellView(model: model)
-//            Divider()
-//            }
-//        }
+//struct FriendsListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FriendsListView(viewModel: FriendListViewModel())
 //    }
-//
 //}
+

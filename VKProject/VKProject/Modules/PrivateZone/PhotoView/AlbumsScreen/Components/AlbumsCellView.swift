@@ -7,7 +7,6 @@
 
 
 import SwiftUI
-import Kingfisher
 import Combine
 
 struct AlbumsCellView: View {
@@ -27,15 +26,14 @@ private extension AlbumsCellView {
     
     var albums: some View{
         LazyVStack{
-            KFImage(URL(string:model.thumbSrc))
-                .renderingMode(.original)
-                .resizable()
-                .frame(width: 150, height: 125)
-            
+            NetworkImage(imageURL: URL(string:model.thumbSrc),
+                         width: 150,
+                         height: 150,
+                         cornerRadius: 0)
             Text(model.title)
                 .foregroundColor(Color.black)
             
-            Text("Кол-во фотографий: \(model.size)")
+            Text(Strings.countPhotoColon + String(model.size))
                 .lineLimit(1)
                 .truncationMode(.tail)
                 .font(.caption2)
@@ -44,10 +42,6 @@ private extension AlbumsCellView {
             
         }
     }
-    
-
-
-
 }
 
 //struct AlbumsCellView_Previews: PreviewProvider {

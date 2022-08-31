@@ -14,6 +14,7 @@ enum VKAPI {
     case getNewsFeed
     case getPhoto(id: Int)
     case getAlbums
+    case getUser(userID: Int)
 
     
 }
@@ -36,6 +37,9 @@ extension VKAPI: TargetType {
             return "method/photos.get"
         case .getAlbums:
             return "method/photos.getAlbums"
+        case .getUser:
+            return "method/users.get"
+
 
             
         }
@@ -52,7 +56,7 @@ extension VKAPI: TargetType {
             param["access_token"] = LocalStorage.current.token
             param["count"] = 1000
             param["fields"] = "online,photo_Max"
-            param["v"] = "5.131"
+            param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
         
         case .getGroups:
@@ -61,7 +65,7 @@ extension VKAPI: TargetType {
             param["extended"] = 1
             param["fields"] = "description,photo_200,activity,members_count,age_limits"
 //            param["count"] = 10
-            param["v"] = "5.131"
+            param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
         
         case .getNewsFeed:
@@ -70,7 +74,7 @@ extension VKAPI: TargetType {
             param["filters"] = "post"
             param["max_photos"] = 10
             param["fields"] = "name,photo_200"
-            param["v"] = "5.131"
+            param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
             
         case let .getPhoto(id):
@@ -82,7 +86,7 @@ extension VKAPI: TargetType {
             param["rev"] = 1
             param["offset"] = 0
             param["count"] = 1000
-            param["v"] = "5.131"
+            param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
             
         case .getAlbums:
@@ -91,8 +95,18 @@ extension VKAPI: TargetType {
             param["owner_id"] = LocalStorage.current.vkId
             param["need_system"] = 1
             param["need_covers"] = 1
-            param["v"] = "5.131"
+            param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
+            
+        case let .getUser(userID):
+            var param: [String: Any] = [:]
+            param["access_token"] = LocalStorage.current.token
+            param["user_ids"] = userID
+            param["fields"] = "first_name,last_name,deactivated,is_closed,about,activities,bdate,city,common_count,counters,country,education,followers_count,photo_max_orig,screen_name,status,online"
+            param["name_case"] = "nom"
+            param["v"] = Consts.MethodVK.version
+            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+            
             
         }
 }

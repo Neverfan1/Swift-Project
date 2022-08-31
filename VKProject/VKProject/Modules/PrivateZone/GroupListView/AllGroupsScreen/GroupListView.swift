@@ -9,20 +9,16 @@ import SwiftUI
 
 struct GroupListView: View {
     
-    //    @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewModel = GroupListViewModel()
-    @State private var searchText = ""
+    @StateObject var viewModel: GroupListViewModel
+    @State private var text = ""
     
     var body: some View {
         VStack{
-            header
             scrollContent
-        //        .onChange(of: viewModel.output.error) { error in
-        //            if error {
-        //                presentationMode.wrappedValue.dismiss()
-        //            }
-        //        }
         }
+        .onAppear(perform: onApperSend)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(Strings.groups)
     }
 }
 
@@ -33,7 +29,7 @@ extension GroupListView {
     }
     
     var header: some View{
-        Text("Группы")
+        Text(Strings.groups)
             .bold()
             .font(.title)
             .onAppear(perform: onApperSend)
@@ -42,22 +38,22 @@ extension GroupListView {
     var scrollContent: some View{
         ScrollView(.vertical, showsIndicators: false) {
             PullToRefreshView {onApperSend() }
-            ForEach(viewModel.output.groups) { model in
-                GroupsCellView(model: model)
-                Divider()
-            }
+            SearchBar(text: $text)
+            ForEach(text == "" ?  viewModel.output.groups:
+                        viewModel.output.groups.filter{
+                $0.name.lowercased().contains(text.lowercased())}) { model in
+                    GroupsCellView(model: model, goToInfo: viewModel.input.model)
+                    Divider()
+                }
             
         }
-    
+        
     }
-    
-    
-    
 }
 
-struct GroupListView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupListView()
-    }
-}
+//struct GroupListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroupListView()
+//    }
+//}
 

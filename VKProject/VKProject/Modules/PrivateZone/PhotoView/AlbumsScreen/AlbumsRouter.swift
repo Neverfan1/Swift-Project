@@ -17,5 +17,4 @@ extension PhotosCoordinator: AlbumsRouter {
     func goToPhoto(id: Int) {
         self.route(to: \.photo, id)
     }
-    
 }

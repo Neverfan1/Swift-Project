@@ -1,27 +1,29 @@
 //
-//  GroupListViewModel.swift
+//  UserViewModel.swift
 //  VKProject
 //
-//  Created by Данила Парамин on 10.08.2022.
+//  Created by Данила Парамин on 24.08.2022.
 //
 
 import Foundation
 import Combine
 import CombineExt
 
-final class GroupListViewModel: ObservableObject {
+final class UserViewModel: ObservableObject {
     
     let apiService = VKAPIService()
     
-    private weak var router: GroupRouter?
+    
+    private let userID: Int
+
     
     let input : Input
     @Published var output = Output()
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(router: GroupRouter?) {
-        self.router = router
+    init(userID: Int) {
+        self.userID = userID
         self.input = Input()
         self.output = Output()
         
@@ -30,14 +32,14 @@ final class GroupListViewModel: ObservableObject {
     
     func setubBindings() {
         bindRequest()
-        sendModel()
+//        sendModel()
     }
     
     func bindRequest() {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getGroups()
+                self.apiService.getUser(id: self.userID)
                     .materialize()
             }
             .switchToLatest()
@@ -46,7 +48,8 @@ final class GroupListViewModel: ObservableObject {
         request
             .values()
             .sink { [weak self] in
-                self?.output.groups = $0
+                self?.output.user = $0
+                
             }
             .store(in: &cancellable)
         
@@ -59,24 +62,19 @@ final class GroupListViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellable)
-    }
-    
-    func sendModel() {
-        input.model
-            .sink { [weak self] in
-                self?.router?.goToInfo(model: $0)
-            }
-            .store(in: &cancellable)
+        
     }
 }
 
-extension GroupListViewModel {
+extension UserViewModel {
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
-        let model = PassthroughSubject<GroupModel, Never>()
+
     }
     
     struct Output {
-        var groups: [GroupModel] = []
+        var user: UserModel?
     }
+    
 }
+

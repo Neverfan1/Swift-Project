@@ -32,11 +32,8 @@ extension GroupsCoordinator {
         GroupListView(viewModel: viewModel)
     }
 
-    @ViewBuilder func makeGroupInfo() -> some View {
-        GroupInfoView()
-
-        let viewModel = PhotoListViewModel(albumID: id)
-        GroupInfoView(viewModel: viewModel)
+    @ViewBuilder func makeGroupInfo(model: GroupModel) -> some View {
+        GroupInfoView(model: model)
     }
 }
 

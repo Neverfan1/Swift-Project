@@ -24,13 +24,7 @@ final class PhotoModelMapper: BaseModelMapper<ServerPhotoModel, PhotoModel> {
 
 private extension PhotoModelMapper {
     func mapPhoto(_ photoURL: [Size]?) -> Size {
-        if photoURL == nil{
-            return Size(height: 0, url: "", type: "", width: 0)
-        }
-        else{
-            return  (photoURL?.last)!
-        }
-        
+        photoURL?.last ?? Size(height: 0, url: "", type: "", width: 0)
     }
 }
 

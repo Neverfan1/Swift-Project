@@ -36,7 +36,7 @@ final class PhotoListViewModel: ObservableObject {
             .map { [unowned self] in
                 self.apiService.getPhoto(id: self.albumID)
                     .materialize()
-
+                
                 
             }
             .switchToLatest()
@@ -51,18 +51,14 @@ final class PhotoListViewModel: ObservableObject {
         
         request
             .failures()
-            .sink { [weak self] in
-//                LocalStorage.current.token = nil
-//                self?.output.error = true
+            .sink {
                 switch $0 {
                 case .badQuery: print("badQuery")
                 case .notFound: print("notFound")
                 }
             }
             .store(in: &cancellable)
-    
     }
-    
 }
 
 extension PhotoListViewModel {
@@ -73,7 +69,6 @@ extension PhotoListViewModel {
     
     struct Output {
         var photo: [PhotoModel] = []
-        var error = false
     }
 }
 

@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct PhotoCellView: View {
     let model: PhotoModel
-
+    
     
     var body: some View {
         LazyVStack{
@@ -37,13 +36,11 @@ private extension PhotoCellView {
     }
     
     var photo: some View{
-        KFImage(URL(string:model.photoURL.url!))
-            .renderingMode(.original)
-            .resizable()
-            .frame(width: 185, height: 140)
+        NetworkImage(imageURL: URL(string:model.photoURL.url!),
+                     width: 185,
+                     height: 140,
+                     cornerRadius: 0)
     }
-
-
 }
 
 struct PhotoCellView_Previews: PreviewProvider {

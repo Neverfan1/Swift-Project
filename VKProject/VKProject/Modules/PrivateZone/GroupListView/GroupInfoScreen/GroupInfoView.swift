@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Kingfisher
+
 
 struct GroupInfoView: View {
     
@@ -36,11 +36,10 @@ struct GroupInfoView: View {
 extension GroupInfoView{
     var headerGroup: some View{
         HStack{
-            KFImage(URL(string:model.photo200))
-                .renderingMode(.original)
-                .resizable()
-                .frame(width: 60, height: 60)
-                .cornerRadius(100)
+            NetworkImage(imageURL: URL(string:model.photo200),
+                         width: 60,
+                         height: 60,
+                         cornerRadius: 100)
             Text(model.name)
             Spacer()
         }
@@ -48,35 +47,31 @@ extension GroupInfoView{
     
     var memmberCount: some View{
         HStack{
-            Text("Подписчики: \(model.membersCount)")
+            Text(Strings.memmberCountColon + String(model.membersCount))
             Spacer()
-            
         }
     }
     
     var ageLimit: some View{
         HStack{
-            Text("Возрастное ограничение: \(model.ageLimits)")
+            Text(Strings.ageLimitColon + model.ageLimits.description)
             Spacer()
         }
     }
     
     var description: some View{
         HStack{
-            Text("Описание: \(model.description)")
+            Text(Strings.descriptionColon + model.description)
             Spacer()
-            
         }
     }
     
     var activity: some View{
         HStack{
-            Text("Тематика группы: \(model.activity)")
+            Text(Strings.activityColon + model.activity)
             Spacer()
         }
     }
-    
-    
 }
 
 struct GroupInfoView_Previews: PreviewProvider {

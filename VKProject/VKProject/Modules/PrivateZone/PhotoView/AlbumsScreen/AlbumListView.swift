@@ -9,31 +9,22 @@ import SwiftUI
 
 struct AlbumListView: View {
     
-//    @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: AlbumListViewModel
     
     var body: some View {
         VStack{
             scrollContent
-                .onAppear(perform: onApperSend)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Альбомы")
-
         }
-
-        
-//        .onChange(of: viewModel.output.error) { error in
-//            if error {
-//                presentationMode.wrappedValue.dismiss()
-//            }
-//        }
+        .onAppear(perform: onApperSend)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(Strings.album)
     }
 }
 
 extension AlbumListView {
     
     var header: some View{
-        Text("Фотоальбомы")
+        Text(Strings.photoAlbum)
             .bold()
             .font(.title)
             .onAppear(perform: onApperSend)
@@ -53,7 +44,6 @@ extension AlbumListView {
     func onApperSend() {
         viewModel.input.onAppear.send()
     }
-    
 }
 
 //struct AlbumListView_Previews: PreviewProvider {
@@ -61,4 +51,3 @@ extension AlbumListView {
 //        AlbumListView()
 //    }
 //}
-

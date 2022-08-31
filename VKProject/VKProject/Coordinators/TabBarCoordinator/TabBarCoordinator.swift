@@ -16,7 +16,7 @@ final class TabBarCoordinator: TabCoordinatable {
             \TabBarCoordinator.groups,
              \TabBarCoordinator.photos,
              \TabBarCoordinator.friends,
-             \TabBarCoordinator.settings,
+             \TabBarCoordinator.exit,
              
         ]
     )
@@ -24,7 +24,7 @@ final class TabBarCoordinator: TabCoordinatable {
     @Route(tabItem: makeGroupsTab) var groups = makeGroups
     @Route(tabItem: makePhotosTab) var photos = makePhotos
     @Route(tabItem: makeFriendsTab) var friends = makeFriends
-    @Route(tabItem: makeSettingsTab) var settings = makeSettings
+    @Route(tabItem: makeExitTab) var exit = makeExit
     
     deinit {
         print("Deinit AuthenticatedCoordinator")
@@ -33,14 +33,13 @@ final class TabBarCoordinator: TabCoordinatable {
 
 extension TabBarCoordinator {
     
-    @ViewBuilder func makeGroups() -> some View {
-        let viewModel = GroupListViewModel()
-        GroupListView(viewModel: viewModel)
+    func makeGroups() -> NavigationViewCoordinator<GroupsCoordinator> {
+        NavigationViewCoordinator(GroupsCoordinator())
     }
     
     @ViewBuilder func makeGroupsTab(isActive: Bool) -> some View {
         Image(systemName: "person.3")
-        Text("Groups")
+        Text(Strings.groups)
     }
     
     func makePhotos() -> NavigationViewCoordinator<PhotosCoordinator> {
@@ -50,27 +49,26 @@ extension TabBarCoordinator {
     
     @ViewBuilder func makePhotosTab(isActive: Bool) -> some View {
         Image(systemName: "photo.on.rectangle")
-        Text("albums")
+        Text(Strings.album)
     }
     
-    @ViewBuilder func makeFriends()  -> some View {
-        let viewModel = FriendListViewModel()
-        FriendsListView(viewModel2: viewModel)
+    func makeFriends()  -> NavigationViewCoordinator<FriendsCoordinator> {
+        NavigationViewCoordinator(FriendsCoordinator())
     }
 
     
     @ViewBuilder func makeFriendsTab(isActive: Bool) -> some View {
         Image(systemName: "person.2")
-        Text("friends")
+        Text(Strings.friends)
     }
     
-    @ViewBuilder func makeSettings() -> some View {
-        SettingsListView()
+    @ViewBuilder func makeExit() -> some View {
+        ExitView(viewModel: ExitViewModel())
     }
     
-    @ViewBuilder func makeSettingsTab(isActive: Bool) -> some View {
-        Image(systemName: "gear")
-        Text("Settings")
+    @ViewBuilder func makeExitTab(isActive: Bool) -> some View {
+        Image(systemName: "rectangle.portrait.and.arrow.right")
+        Text(Strings.exit)
     }
     
     

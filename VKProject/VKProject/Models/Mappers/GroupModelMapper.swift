@@ -16,41 +16,38 @@ final class GroupModelMapper: BaseModelMapper<ServerGroupModel, GroupModel> {
                    screenName: serverEntity.screenName.orEmpty ,
                    isClosed: serverEntity.isClosed ?? 0,
                    type: serverEntity.type.orEmpty ,
-                   photo200: replaseSlash(groupURL: serverEntity.photo200),
+                   photo200: serverEntity.photo200.orEmpty,
                    activity: serverEntity.activity.orEmpty,
                    membersCount: serverEntity.membersCount ?? 0,
-                   ageLimits: age(serverEntity.ageLimits))
+                   ageLimits: AgeLimit(rawValue: serverEntity.ageLimits ?? 0) ?? .none)
     }
 }
 
 private extension GroupModelMapper {
-    func replaseSlash(groupURL: String?) -> String {
-        if groupURL == nil{
-            return ""
-        }
-        else{
-            return  groupURL!.replacingOccurrences(of: "\\/", with: "/", options: .literal)
-        }
-        
-    }
+//    func replaseSlash(groupURL: String?) -> String {
+//        if groupURL == nil{
+//            return ""
+//        }
+//        else{
+//            return  groupURL!.replacingOccurrences(of: "\\/", with: "/", options: .literal)
+//        }
+//    }
+}
+
+enum AgeLimit: Int {
+    case none = 1
+    case tineger = 2
+    case adult = 3
     
-    func age (_ ageLimits: Int?) -> String{
-       var limit = ""
-        if ageLimits == nil{
-            limit = ""
+    var description: String {
+        switch self {
+        case .none:
+            return "Нет"
+        case .tineger:
+            return "16+"
+        case .adult:
+            return "18+"
         }
-        else{
-            if ageLimits == 1 {
-                limit = "Нет"
-            }
-            if ageLimits == 2{
-                 limit = "16+"
-            }
-            if ageLimits == 3{
-                 limit = "18+"
-            }
-        }
-        return limit
     }
 }
 

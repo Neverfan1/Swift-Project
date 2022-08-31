@@ -24,7 +24,8 @@ final class WebViewRepresentableModel: ObservableObject {
     func bind(){
         input.onComplitedWebView
             .sink{ [weak self] in
-                self?.output.showFriends = true
+                self?.output.showContent = true
+                
             }
             .store(in: &cancellable)
     }
@@ -64,7 +65,7 @@ extension WebViewRepresentableModel{
     }
     
     struct Output {
-        var showFriends = LocalStorage.current.token != nil
+        var showContent = LocalStorage.current.isComplited != false 
         
         
     }

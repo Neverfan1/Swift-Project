@@ -13,21 +13,34 @@ struct NetworkImage: SwiftUI.View {
     @State private var image: UIImage? = nil
     
     let imageURL: URL?
-
     
-    init(imageURL: URL?) {
+    var width: CGFloat?
+    var height: CGFloat?
+    var cornerRadius: CGFloat?
+    
+    
+    init(imageURL: URL?,
+         width: CGFloat?,
+         height: CGFloat?,
+         cornerRadius: CGFloat?) {
         self.imageURL = imageURL
-
+        self.width = width
+        self.height = height
+        self.cornerRadius = cornerRadius
+        
     }
     
     var body: some SwiftUI.View {
         Image(uiImage: image ?? UIImage(systemName: "eye.slash")!)
+            .renderingMode(.original)
             .resizable()
+            .frame(width: self.width ?? 43, height: self.height ?? 43)
+            .cornerRadius(self.cornerRadius ?? 100)
             .onAppear{
-                    loadImage()
+                loadImage()
             }
-        }
-
+    }
+    
     
     
     private func loadImage() {
