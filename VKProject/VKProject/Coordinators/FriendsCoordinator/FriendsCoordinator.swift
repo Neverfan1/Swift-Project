@@ -28,12 +28,12 @@ final class FriendsCoordinator: NavigationCoordinatable {
 extension FriendsCoordinator {
     
     @ViewBuilder func makeFriends() -> some View {
-        let viewModel = FriendListViewModel(router: self)
+        let viewModel = FriendListViewModel(router: self, api: VKAPIService())
         FriendsListView(viewModel: viewModel)
     }
     
     @ViewBuilder func makeUser(id: Int) -> some View {
-        let viewModel = UserViewModel(userID: id)
+        let viewModel = UserViewModel(userID: id, api: VKAPIService())
         UserView(viewModel: viewModel)
     }
 }

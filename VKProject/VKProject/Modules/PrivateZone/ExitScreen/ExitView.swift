@@ -11,13 +11,12 @@ struct ExitView: View {
     @StateObject var viewModel: ExitViewModel
     
     var body: some View {
-        Button {
-            TapExit()
-        } label: {
-            Text(Strings.exit)
+        VStack{
+            topImage
+            AppButton(style: .exit, title: Strings.exit) {
+                TapExit()
+            }
         }
-
-
     }
 }
 
@@ -25,6 +24,16 @@ private extension ExitView{
     
     func TapExit() {
         viewModel.input.TapExit.send()
+        
+    }
+    
+    var topImage: some View{
+        Image("exit")
+            .renderingMode(.original)
+            .resizable()
+            .frame(width: 369, height: 369, alignment: .center)
+            .cornerRadius(9)
+            .padding(.bottom, 50)
         
     }
 }

@@ -33,6 +33,7 @@ private extension ExitViewModel{
             .sink {
                 LocalStorage.current.isComplited = false
                 AuthenticationLocalService.shared.status.send(false)
+                LocalStorage.current.token = nil
             }
             .store(in: &cancellable)
     }

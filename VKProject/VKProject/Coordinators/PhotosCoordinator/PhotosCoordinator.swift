@@ -21,7 +21,7 @@ final class PhotosCoordinator: NavigationCoordinatable {
     init() {
         print("Я Родился!")
     }
-        
+    
 #if DEBUG
     deinit {
         print("Coordinator \(self) DEINITED!!!")
@@ -32,12 +32,12 @@ final class PhotosCoordinator: NavigationCoordinatable {
 extension PhotosCoordinator {
     
     @ViewBuilder func makeAlbums() -> some View {
-        let viewModel = AlbumListViewModel(router: self)
+        let viewModel = AlbumListViewModel(router: self, api: VKAPIService())
         AlbumListView(viewModel: viewModel)
     }
     
     @ViewBuilder func makePhotos(id: Int) -> some View {
-        let viewModel = PhotoListViewModel(albumID: id)
+        let viewModel = PhotoListViewModel(albumID: id, api: VKAPIService())
         PhotoListView(viewModel: viewModel)
     }
 }

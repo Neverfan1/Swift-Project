@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PhotoCellView: View {
-    let model: PhotoModel
     
+    let model: PhotoModel
     
     var body: some View {
         LazyVStack{

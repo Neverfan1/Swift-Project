@@ -17,7 +17,7 @@ struct SearchBar: View{
                 .font(.system(size: 23, weight: .bold))
                 .foregroundColor(.gray)
             
-            TextField("Поиск", text: $text)
+            TextField(Strings.search, text: $text)
         }
         .padding(.vertical, 10)
         .padding(.horizontal)

@@ -11,8 +11,8 @@ import CombineExt
 
 final class UserViewModel: ObservableObject {
     
-    let apiService = VKAPIService()
-    
+//    let apiService = VKAPIService()
+    private let api: UserAPIProtocol
     
     private let userID: Int
 
@@ -22,7 +22,9 @@ final class UserViewModel: ObservableObject {
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(userID: Int) {
+    init(userID: Int,
+         api: UserAPIProtocol) {
+        self.api = api
         self.userID = userID
         self.input = Input()
         self.output = Output()
@@ -39,7 +41,7 @@ final class UserViewModel: ObservableObject {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getUser(id: self.userID)
+                self.api.getUser(id: self.userID)
                     .materialize()
             }
             .switchToLatest()

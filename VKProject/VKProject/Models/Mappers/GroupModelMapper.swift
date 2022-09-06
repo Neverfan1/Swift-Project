@@ -16,7 +16,7 @@ final class GroupModelMapper: BaseModelMapper<ServerGroupModel, GroupModel> {
                    screenName: serverEntity.screenName.orEmpty ,
                    isClosed: serverEntity.isClosed ?? 0,
                    type: serverEntity.type.orEmpty ,
-                   photo200: serverEntity.photo200.orEmpty,
+                   photo200: replaseSlash(groupURL: serverEntity.photo200) ,
                    activity: serverEntity.activity.orEmpty,
                    membersCount: serverEntity.membersCount ?? 0,
                    ageLimits: AgeLimit(rawValue: serverEntity.ageLimits ?? 0) ?? .none)
@@ -24,14 +24,14 @@ final class GroupModelMapper: BaseModelMapper<ServerGroupModel, GroupModel> {
 }
 
 private extension GroupModelMapper {
-//    func replaseSlash(groupURL: String?) -> String {
-//        if groupURL == nil{
-//            return ""
-//        }
-//        else{
-//            return  groupURL!.replacingOccurrences(of: "\\/", with: "/", options: .literal)
-//        }
-//    }
+    func replaseSlash(groupURL: String?) -> String {
+        if groupURL == nil{
+            return ""
+        }
+        else{
+            return  groupURL!.replacingOccurrences(of: "\\/", with: "/", options: .literal)
+        }
+    }
 }
 
 enum AgeLimit: Int {

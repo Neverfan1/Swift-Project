@@ -17,22 +17,21 @@ struct AlbumListView: View {
         }
         .onAppear(perform: onApperSend)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(Strings.album)
+        .toolbar {
+                   ToolbarItem(placement: .principal) {
+                       TabBar(title: Strings.photoAlbum, refresh: true, action: onApperSend)
+                   }
+                   
+        }
+        .navigationTitle(Strings.photoAlbum)
     }
 }
 
 extension AlbumListView {
     
-    var header: some View{
-        Text(Strings.photoAlbum)
-            .bold()
-            .font(.title)
-            .onAppear(perform: onApperSend)
-    }
     
     var scrollContent: some View{
         ScrollView(.vertical, showsIndicators: false) {
-            PullToRefreshView {onApperSend() }
             ForEach(viewModel.output.album) { model in
                 AlbumsCellView(model: model,
                                goToPhoto: viewModel.input.goToPhoto)

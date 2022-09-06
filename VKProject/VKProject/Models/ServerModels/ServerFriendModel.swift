@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct ServerResponse1: Decodable {
-    let response: ServerFriendResponse
-}
-
-struct ServerFriendResponse: Decodable {
-    let count: Int
-    let items: [ServerFriendModel]
-}
 
 struct ServerFriendModel: Decodable {
     let id: Int

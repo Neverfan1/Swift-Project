@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  WebView.swift
 //  VKProject
 //
 //  Created by Данила Парамин on 10.08.2022.
@@ -7,32 +7,27 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct WebView: View {
     
     @State private var tagSelection: String? = nil
     
-    @StateObject var viewModel = WebViewRepresentableModel(router: AuthorizationCoordinator())
+    @StateObject var viewModel = WebViewRepresentableModel()
     var body: some View {
+
             webView
 
+
     }
 }
 
 
 
-private extension ContentView {
+private extension WebView {
     @ViewBuilder var webView: some View{
         if let url = viewModel.url{
-            WebViewRepresentable(url: url,
-                                 onComplited: viewModel.input.onComplitedWebView)
+            WebViewRepresentable(url: url)
         
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 

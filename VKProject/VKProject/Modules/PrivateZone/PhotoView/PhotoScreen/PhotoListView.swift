@@ -13,23 +13,24 @@ struct PhotoListView: View {
     
     var body: some View {
         VStack{
-            header
             scrollConten
         }
+        .onAppear(perform: onApperSend)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+                   ToolbarItem(placement: .principal) {
+                       TabBar(title: Strings.photo, refresh: true, action: onApperSend)
+                   }
+                   
+        }
+        .navigationTitle(Strings.photo)
     }
 }
 
 extension PhotoListView {
-    var header: some View{
-        Text(Strings.photo)
-            .bold()
-            .font(.title)
-            .onAppear(perform: onApperSend)
-    }
-    
+
     var scrollConten: some View{
         ScrollView(.vertical, showsIndicators: false) {
-            PullToRefreshView {onApperSend() }
             ForEach(viewModel.output.photo) { model in
                 PhotoCellView(model: model)
                 Divider()

@@ -12,7 +12,6 @@ import SwiftUI
 struct WebViewRepresentable: UIViewRepresentable {
     
     let url: URL
-    let onComplited: PassthroughSubject<Void, Never>
     
     func makeUIView(context: Context) -> some WKWebView {
         let webView = WKWebView()
@@ -27,17 +26,14 @@ struct WebViewRepresentable: UIViewRepresentable {
         }
     }
     
+    
+
+    
     func makeCoordinator() -> Coordinator {
-        return Coordinator(onComplited: onComplited)
+        return Coordinator()
     }
     
     final class Coordinator: NSObject, WKNavigationDelegate {
-        
-        let onComplited: PassthroughSubject<Void, Never>
-        
-        init(onComplited: PassthroughSubject<Void, Never>) {
-            self.onComplited = onComplited
-        }
         
         func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!){
             guard let param = webView.url?.queryParams else { return }
@@ -68,8 +64,9 @@ struct WebViewRepresentable: UIViewRepresentable {
                         }
                     }
                 }
-                onComplited.send()
             }
+            LocalStorage.current.isComplited = true
+            AuthenticationLocalService.shared.status.send(true)
         }
     }
 }

@@ -9,23 +9,22 @@ import SwiftUI
 
 struct UserView: View {
     @StateObject var viewModel: UserViewModel
-    
-    //    let model: UserModel
     var body: some View {
         VStack{
             screenName
             
             ScrollView(.vertical, showsIndicators: false) {
                 Divider()
-                    
-                    userHeader
-                    friendButton
-                    bdate
-                    city
-                    about
-                    activities
-                    education
-                    friends
+                
+                userHeader
+                friendButton
+                bdate
+                city
+                about
+                activities
+                education
+                friends
+                mutualFriends
             }
         }
         .padding()
@@ -33,6 +32,14 @@ struct UserView: View {
         .background(Color.gray.opacity(0.2))
         .cornerRadius(14)
         .onAppear(perform: onApperSend)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                TabBar(title: Strings.friends, refresh: true, action: onApperSend)
+            }
+            
+        }
+        .navigationTitle(Strings.friends)
         
     }
 }
@@ -187,17 +194,14 @@ extension UserView{
         }
     }
     
-    //    var mutualFriends: some View{
-    //        HStack{
-    //            Text("Общие друзья: \(model.mutualFriends)")
-    //            Spacer()
-    //        }
-    //
-    //    }
-}
-
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserView(viewModel:UserViewModel.init(userID: 703747841) )
+    @ViewBuilder  var mutualFriends: some View{
+        if let model = viewModel.output.user {
+            HStack{
+                Text("Общие друзья: \(model.mutualFriends)")
+                Spacer()
+            }
+            .padding(.bottom, 15)
+        }
+        
     }
 }

@@ -11,6 +11,7 @@ func converterDate(inputDate: String) -> String{
     // Create Date Formatter
     let olDateFormatter = DateFormatter()
     let convertDateFormatter = DateFormatter()
+    convertDateFormatter.locale = Locale(identifier: "ru_RU")
     
     var newDateString = ""
     print(inputDate.numberOfOccurrencesOf(string: "."))
@@ -20,7 +21,8 @@ func converterDate(inputDate: String) -> String{
         olDateFormatter.dateFormat = "dd.MM"
         let newDate = olDateFormatter.date(from: inputDate)
         
-        convertDateFormatter.dateFormat = "dd MMM"
+        
+        convertDateFormatter.dateFormat = "dd MMMM"
         newDateString =  convertDateFormatter.string(from: newDate!)
     }
     
@@ -29,7 +31,7 @@ func converterDate(inputDate: String) -> String{
         olDateFormatter.dateFormat = "dd.MM.yyyy"
         let newDate = olDateFormatter.date(from: inputDate)
         
-        convertDateFormatter.dateFormat = "MMM dd, yyyy"
+        convertDateFormatter.dateFormat = "dd MMMM, yyyy"
         newDateString =  convertDateFormatter.string(from: newDate!)
         
     }

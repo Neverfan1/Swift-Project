@@ -11,7 +11,7 @@ import CombineExt
 
 final class GroupListViewModel: ObservableObject {
     
-    let apiService = VKAPIService()
+    private let api: GroupsListAPIProtocol
     
     private weak var router: GroupRouter?
     
@@ -20,7 +20,9 @@ final class GroupListViewModel: ObservableObject {
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(router: GroupRouter?) {
+    init(router: GroupRouter?,
+         api:GroupsListAPIProtocol ) {
+        self.api = api
         self.router = router
         self.input = Input()
         self.output = Output()
@@ -37,7 +39,7 @@ final class GroupListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getGroups()
+                self.api.getGroups()
                     .materialize()
             }
             .switchToLatest()

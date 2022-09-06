@@ -57,6 +57,7 @@ private extension FriendsCellView {
     var userName: some View{
         Text(model.fullName)
             .bold()
+            .foregroundColor(.primary)
     }
     
 }

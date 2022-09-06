@@ -7,12 +7,6 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct ServerResponse5: Codable {
-    let response: [ServerUserModel]
-}
-
-// MARK: - Response
 struct ServerUserModel: Codable {
     let id: Int?
     let bdate: String?

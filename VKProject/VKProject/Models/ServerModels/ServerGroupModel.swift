@@ -7,18 +7,8 @@
 
 import Foundation
 
-struct ServerResponse2: Decodable {
-    let response: ServerGroupResponse
-}
-
-// MARK: - Response
-struct ServerGroupResponse: Decodable {
-    let count: Int
-    let items: [ServerGroupModel]
-}
 
 struct ServerGroupModel: Decodable{
-    
     let id: Int
     let description: String?
     let name: String?

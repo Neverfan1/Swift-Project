@@ -15,8 +15,8 @@ final class AuthorizationCoordinator: NavigationCoordinatable, WebRouter {
     let stack = NavigationStack(initial: \AuthorizationCoordinator.loginVK)
     
     @Root var loginVK = makeLogin
-    @Route(.push) var webLogin = makeWebLogin
-        
+    @Route(.modal) var webLogin = makeWebLogin
+    
 #if DEBUG
     deinit {
         print("Coordinator \(self) DEINITED!!!")
@@ -32,8 +32,7 @@ extension AuthorizationCoordinator {
     }
     
     @ViewBuilder func makeWebLogin() -> some View {
-            let viewModel = WebViewRepresentableModel(router: self)
-            ContentView(viewModel: viewModel)
-        }
-    
+        let viewModel = WebViewRepresentableModel()
+        WebView(viewModel: viewModel)
+    }
 }

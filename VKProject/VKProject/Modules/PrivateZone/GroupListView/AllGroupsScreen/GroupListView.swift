@@ -18,6 +18,12 @@ struct GroupListView: View {
         }
         .onAppear(perform: onApperSend)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+                   ToolbarItem(placement: .principal) {
+                       TabBar(title: Strings.groups, refresh: true, action: onApperSend)
+                   }
+                   
+        }
         .navigationTitle(Strings.groups)
     }
 }
@@ -37,7 +43,6 @@ extension GroupListView {
     
     var scrollContent: some View{
         ScrollView(.vertical, showsIndicators: false) {
-            PullToRefreshView {onApperSend() }
             SearchBar(text: $text)
             ForEach(text == "" ?  viewModel.output.groups:
                         viewModel.output.groups.filter{

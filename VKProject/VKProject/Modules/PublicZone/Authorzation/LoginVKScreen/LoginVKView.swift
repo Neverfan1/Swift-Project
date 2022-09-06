@@ -12,13 +12,24 @@ struct LoginVKView: View {
     
     var body: some View {
         VStack{
-            Button {
+            
+            topImage
+            AppButton(style: .authorization, title: Strings.authorization) {
                 viewModel.input.authButtonTap.send()
-            } label: {
-                Text(Strings.authorization)
             }
-
         }
+    }
+}
+
+extension LoginVKView{
+    var topImage: some View{
+        Image("vk_logo")
+            .renderingMode(.original)
+            .resizable()
+            .frame(width: 90, height: 90, alignment: .center)
+            .cornerRadius(15)
+            .padding(.bottom, 50)
+        
     }
 }
 

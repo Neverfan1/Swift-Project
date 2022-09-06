@@ -11,7 +11,8 @@ import CombineExt
 
 final class FriendListViewModel: ObservableObject {
     
-    let apiService = VKAPIService()
+    private let api: FriendsListAPIProtocol
+    
     private weak var router: FriendsRouter?
     
     let input: Input
@@ -19,7 +20,9 @@ final class FriendListViewModel: ObservableObject {
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(router: FriendsRouter?) {
+    init(router: FriendsRouter?,
+         api: FriendsListAPIProtocol) {
+        self.api = api
         self.router = router
         self.input = Input()
         self.output = Output()
@@ -36,7 +39,7 @@ final class FriendListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getFriends()
+                self.api.getFriends()
                     .materialize()
             }
             .switchToLatest()

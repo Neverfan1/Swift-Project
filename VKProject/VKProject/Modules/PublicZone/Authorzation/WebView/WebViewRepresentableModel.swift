@@ -12,29 +12,9 @@ final class WebViewRepresentableModel: ObservableObject {
     
     let input = Input()
     @Published var output = Output()
-    private weak var router: WebRouter?
     var cancellable = Set<AnyCancellable>()
-    
-    init(router: WebRouter?) {
-        bind()
-        self.router = router
-        complited()
-    }
-    
-    func bind(){
-        input.onComplitedWebView
-            .sink{ [weak self] in
-                self?.output.showContent = true
-                
-            }
-            .store(in: &cancellable)
-    }
-    
-    func complited (){
-        LocalStorage.current.isComplited = true
-        AuthenticationLocalService.shared.status.send(true)
-    }
-    
+        
+
     var url: URL? {
         guard var urlComponents = URLComponents(string: Consts.VK.vkURL) else {
             return nil
@@ -61,13 +41,9 @@ final class WebViewRepresentableModel: ObservableObject {
 extension WebViewRepresentableModel{
     
     struct Input {
-        let onComplitedWebView = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
-        var showContent = LocalStorage.current.isComplited != false 
-        
-        
     }
 }
 

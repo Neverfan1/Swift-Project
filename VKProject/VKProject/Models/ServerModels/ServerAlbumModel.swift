@@ -8,17 +8,6 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct ServerResponse4: Codable {
-    let response: ServerAlbumlResponse
-}
-
-// MARK: - Response
-struct ServerAlbumlResponse: Codable {
-    let count: Int
-    let items: [ServerAlbumModel]
-}
-
 // MARK: - Item
 struct ServerAlbumModel: Codable {
     let id, ownerID, size: Int?

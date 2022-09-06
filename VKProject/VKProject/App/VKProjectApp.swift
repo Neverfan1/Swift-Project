@@ -12,6 +12,7 @@ struct VKProjectApp: App {
     var body: some Scene {
         WindowGroup {
             MainCoordinator().view()
+//            ContentView()
 
         }
     }

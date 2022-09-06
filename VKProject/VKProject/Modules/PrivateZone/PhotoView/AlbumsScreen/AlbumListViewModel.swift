@@ -10,7 +10,8 @@ import Combine
 
 final class AlbumListViewModel: ObservableObject {
     
-    let apiService = VKAPIService()
+//    private let apiService = VKAPIService()
+    private let api: AlbumListAPIProtocol
     
     private weak var router: AlbumsRouter?
     
@@ -19,7 +20,9 @@ final class AlbumListViewModel: ObservableObject {
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(router: AlbumsRouter?) {
+    init(router: AlbumsRouter?,
+         api: AlbumListAPIProtocol) {
+        self.api = api
         self.router = router
         self.input = Input()
         self.output = Output()
@@ -37,7 +40,7 @@ final class AlbumListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.apiService.getAlbums()
+                self.api.getAlbums()
                     .materialize()
                 
                 

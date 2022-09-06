@@ -29,6 +29,15 @@ struct GroupInfoView: View {
             .frame(width: UIScreen.main.bounds.width/1.04)
             .background(Color.gray.opacity(0.2))
             .cornerRadius(14)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                       ToolbarItem(placement: .principal) {
+                           TabBar(title: Strings.groups, refresh: false, action: {})
+                       }
+                       
+            }
+            .navigationTitle(Strings.groups)
+
         }
     }
 }

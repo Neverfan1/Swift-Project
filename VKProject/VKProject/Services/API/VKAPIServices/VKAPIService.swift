@@ -19,19 +19,20 @@ extension VKAPIService {
     func getFriends() -> AnyPublisher<[FriendModel], APIError> {
         provider.requestPublisher(.getFriends)
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse1.self)
+            .map(ServerListResponse<ServerFriendModel>.self)
             .map { $0.response.items }
             .map { FriendModelMapper().toLocal(list: $0) }
             .mapError({ _ in
                     .badQuery
             })
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
     func getGroups() -> AnyPublisher<[GroupModel], APIError> {
         provider.requestPublisher(.getGroups)
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse2.self)
+            .map(ServerListResponse<ServerGroupModel>.self)
             .map { $0.response.items }
             .map { GroupModelMapper().toLocal(list: $0) }
             .mapError({ _ in
@@ -44,31 +45,33 @@ extension VKAPIService {
     func getPhoto(id: Int) -> AnyPublisher<[PhotoModel], APIError> {
         provider.requestPublisher(.getPhoto(id: id))
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse3.self)
+            .map(ServerListResponse<ServerPhotoModel>.self)
             .map { $0.response.items }
             .map { PhotoModelMapper().toLocal(list: $0) }
             .mapError({ _ in
                     .badQuery
             })
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
     func getAlbums() -> AnyPublisher<[AlbumModel], APIError> {
         provider.requestPublisher(.getAlbums)
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse4.self)
+            .map(ServerListResponse<ServerAlbumModel>.self)
             .map { $0.response.items }
             .map { AlbumModelMapper().toLocal(list: $0) }
             .mapError({ _ in
                     .badQuery
             })
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
     func getUser(id: Int) -> AnyPublisher<UserModel, APIError> {
         provider.requestPublisher(.getUser(userID: id))
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse5.self)
+            .map(ServerResponse<ServerUserModel>.self)
             .map { $0.response }
             .map { UserModelMapper().toLocal(list: $0).first! }
             .mapError({ error in
@@ -76,8 +79,32 @@ extension VKAPIService {
 
                     return .badQuery
             })
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
+}
+
+extension VKAPIService: AlbumListAPIProtocol, PhotoListAPIProtocol, UserAPIProtocol, FriendsListAPIProtocol, GroupsListAPIProtocol {}
+
+
+protocol AlbumListAPIProtocol {
+    func getAlbums() -> AnyPublisher<[AlbumModel], APIError>
+}
+
+protocol PhotoListAPIProtocol {
+    func getPhoto(id: Int) -> AnyPublisher<[PhotoModel], APIError>
+}
+
+protocol UserAPIProtocol {
+    func getUser(id: Int) -> AnyPublisher<UserModel, APIError>
+}
+
+protocol FriendsListAPIProtocol {
+    func getFriends() -> AnyPublisher<[FriendModel], APIError>
+}
+
+protocol GroupsListAPIProtocol {
+    func getGroups() -> AnyPublisher<[GroupModel], APIError>
 }
 
