@@ -42,7 +42,7 @@ private extension GroupsCellView {
         Text(model.name)
             .lineLimit(1)
             .truncationMode(.tail)
-            .foregroundColor(.black)
+            .foregroundColor(.primary)
     }
     
     var activity: some View{
@@ -51,7 +51,7 @@ private extension GroupsCellView {
             .lineLimit(1)
             .truncationMode(.tail)
             .font(.caption2)
-            .foregroundColor(.black)
+            .foregroundColor(.primary)
             .opacity(0.4)
         
     }

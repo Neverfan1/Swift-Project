@@ -18,10 +18,10 @@ struct AlbumListView: View {
         .onAppear(perform: onApperSend)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-                   ToolbarItem(placement: .principal) {
-                       TabBar(title: Strings.photoAlbum, refresh: true, action: onApperSend)
-                   }
-                   
+            ToolbarItem(placement: .principal) {
+                TabBar(title: Strings.photoAlbum, refresh: true, action: onApperSend)
+            }
+            
         }
         .navigationTitle(Strings.photoAlbum)
     }
@@ -32,12 +32,16 @@ extension AlbumListView {
     
     var scrollContent: some View{
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(viewModel.output.album) { model in
-                AlbumsCellView(model: model,
-                               goToPhoto: viewModel.input.goToPhoto)
-                Divider()
+            VStack{
+                ForEach(viewModel.output.album) { model in
+                    AlbumsCellView(model: model,
+                                   goToPhoto: viewModel.input.goToPhoto)
+                    Divider()
+                }
             }
+            
         }
+        
     }
     
     func onApperSend() {

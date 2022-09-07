@@ -31,13 +31,13 @@ private extension AlbumsCellView {
                          height: 150,
                          cornerRadius: 0)
             Text(model.title)
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.primary)
             
             Text(Strings.countPhotoColon + String(model.size))
                 .lineLimit(1)
                 .truncationMode(.tail)
                 .font(.caption2)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .opacity(0.4)
             
         }
