@@ -10,7 +10,6 @@ import Combine
 
 final class AlbumListViewModel: ObservableObject {
     
-//    private let apiService = VKAPIService()
     private let api: AlbumListAPIProtocol
     
     private weak var router: AlbumsRouter?
@@ -74,6 +73,8 @@ final class AlbumListViewModel: ObservableObject {
         }
         .store(in: &cancellable)
     }
+    
+
     
     
     struct Input {

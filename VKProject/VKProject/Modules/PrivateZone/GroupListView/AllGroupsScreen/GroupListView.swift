@@ -19,10 +19,10 @@ struct GroupListView: View {
         .onAppear(perform: onApperSend)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-                   ToolbarItem(placement: .principal) {
-                       TabBar(title: Strings.groups, refresh: true, action: onApperSend)
-                   }
-                   
+            ToolbarItem(placement: .principal) {
+                TabBar(title: Strings.groups, refresh: true, action: refresh)
+            }
+            
         }
         .navigationTitle(Strings.groups)
     }
@@ -34,27 +34,44 @@ extension GroupListView {
         viewModel.input.onAppear.send()
     }
     
-    var header: some View{
-        Text(Strings.groups)
-            .bold()
-            .font(.title)
-            .onAppear(perform: onApperSend)
+    func pagination(){
+        viewModel.input.paginationAction.send()
+        onApperSend()
+        
     }
     
-    var scrollContent: some View{
+    func refresh() {
+        viewModel.input.refreshView.send()
+        viewModel.output.groups = []
+        viewModel.input.onAppear.send()
+    }
+    
+    
+    @ViewBuilder var scrollContent: some View{
         ScrollView(.vertical, showsIndicators: false) {
+            
             SearchBar(text: $text)
+            LazyVStack{
             ForEach(text == "" ?  viewModel.output.groups:
                         viewModel.output.groups.filter{
                 $0.name.lowercased().contains(text.lowercased())}) { model in
+                    
+                    
                     GroupsCellView(model: model, goToInfo: viewModel.input.model)
+                        .onAppear {
+                            if viewModel.output.groups.last?.id == model.id{
+                                pagination()
+                            }
+                        }
                     Divider()
                 }
-            
+        }
         }
         
     }
 }
+
+
 
 //struct GroupListView_Previews: PreviewProvider {
 //    static var previews: some View {

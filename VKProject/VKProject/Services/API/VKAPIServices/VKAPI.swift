@@ -10,9 +10,9 @@ import Moya
 
 enum VKAPI {
     case getFriends
-    case getGroups
+    case getGroups(offset: Int)
     case getNewsFeed
-    case getPhoto(id: Int)
+    case getPhoto(id: Int, offset: Int)
     case getAlbums
     case getUser(userID: Int)
 
@@ -59,12 +59,13 @@ extension VKAPI: TargetType {
             param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
         
-        case .getGroups:
+        case let .getGroups(offset):
             var param: [String: Any] = [:]
             param["access_token"] = LocalStorage.current.token
             param["extended"] = 1
             param["fields"] = "description,photo_200,activity,members_count,age_limits"
-//            param["count"] = 10
+            param["offset"] = offset
+            param["count"] = 10
             param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
         
@@ -77,15 +78,15 @@ extension VKAPI: TargetType {
             param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
             
-        case let .getPhoto(id):
+        case let .getPhoto(id, offset):
             var param: [String: Any] = [:]
             param["access_token"] = LocalStorage.current.token
             param["owner_id"] = LocalStorage.current.vkId
             param["album_id"] = id
             param["extended"] = 1
             param["rev"] = 1
-            param["offset"] = 0
-            param["count"] = 1000
+            param["offset"] = offset
+            param["count"] = 10
             param["v"] = Consts.MethodVK.version
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
             

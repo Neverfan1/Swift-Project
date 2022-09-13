@@ -10,7 +10,6 @@ import SwiftUI
 struct TabBar: View {
     
     let title: String
-    @State var titleOffset: CGFloat = 0
     let refresh: Bool
     let action: () -> Void
     
@@ -28,11 +27,6 @@ struct TabBar: View {
         }
         .padding(.bottom, 10)
         
-        
     }
-}
-
-extension TabBar{
-    
 }
 

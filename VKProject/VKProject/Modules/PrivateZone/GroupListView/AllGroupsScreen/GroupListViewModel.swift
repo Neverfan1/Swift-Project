@@ -13,9 +13,11 @@ final class GroupListViewModel: ObservableObject {
     
     private let api: GroupsListAPIProtocol
     
+    private var offset = CurrentValueSubject<Int, Never>(0)
+    
     private weak var router: GroupRouter?
     
-    let input : Input
+    var input : Input
     @Published var output = Output()
     
     private var cancellable = Set<AnyCancellable>()
@@ -33,22 +35,25 @@ final class GroupListViewModel: ObservableObject {
     func setubBindings() {
         bindRequest()
         sendModel()
+        bindPagination()
+        refresh()
     }
     
     func bindRequest() {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.api.getGroups()
+                self.api.getGroups(offset: offset.value)
                     .materialize()
             }
             .switchToLatest()
             .share()
         
+        
         request
             .values()
             .sink { [weak self] in
-                self?.output.groups = $0
+                self?.output.groups.append(contentsOf: $0)
             }
             .store(in: &cancellable)
         
@@ -70,12 +75,33 @@ final class GroupListViewModel: ObservableObject {
             }
             .store(in: &cancellable)
     }
+    
+    func bindPagination(){
+        input.paginationAction
+        .sink{ [weak self] in
+            if let offsetCount = self?.offset.value{
+                self?.offset.send(offsetCount + 10)
+            }
+            
+        }
+        .store(in: &cancellable)
+    }
+    
+    func refresh(){
+        input.refreshView
+        .sink{ [weak self] in
+                self?.offset.send(0)
+        }
+        .store(in: &cancellable)
+    }
 }
 
 extension GroupListViewModel {
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
         let model = PassthroughSubject<GroupModel, Never>()
+        let paginationAction = PassthroughSubject<Void, Never>()
+        let refreshView = PassthroughSubject<Void, Never>()
     }
     
     struct Output {

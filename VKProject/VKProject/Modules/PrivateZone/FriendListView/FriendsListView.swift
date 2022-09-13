@@ -26,7 +26,7 @@ struct FriendsListView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
                    ToolbarItem(placement: .principal) {
-                       TabBar(title: Strings.friends, refresh: true, action: onApperSend)
+                       TabBar(title: Strings.friends, refresh: true, action: refresh)
                    }
                    
         }
@@ -40,6 +40,11 @@ struct FriendsListView: View {
 extension FriendsListView {
         
     func onApperSend() {
+        viewModel.input.onAppear.send()
+    }
+    
+    func refresh() {
+        viewModel.output.friends = []
         viewModel.input.onAppear.send()
     }
     

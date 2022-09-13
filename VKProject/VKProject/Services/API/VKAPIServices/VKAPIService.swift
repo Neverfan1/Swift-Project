@@ -29,8 +29,8 @@ extension VKAPIService {
             .eraseToAnyPublisher()
     }
     
-    func getGroups() -> AnyPublisher<[GroupModel], APIError> {
-        provider.requestPublisher(.getGroups)
+    func getGroups(offset: Int) -> AnyPublisher<[GroupModel], APIError> {
+        provider.requestPublisher(.getGroups(offset: offset))
             .filterSuccessfulStatusCodes()
             .map(ServerListResponse<ServerGroupModel>.self)
             .map { $0.response.items }
@@ -42,8 +42,8 @@ extension VKAPIService {
             .eraseToAnyPublisher()
     }
     
-    func getPhoto(id: Int) -> AnyPublisher<[PhotoModel], APIError> {
-        provider.requestPublisher(.getPhoto(id: id))
+    func getPhoto(id: Int, offset: Int) -> AnyPublisher<[PhotoModel], APIError> {
+        provider.requestPublisher(.getPhoto(id: id, offset: offset))
             .filterSuccessfulStatusCodes()
             .map(ServerListResponse<ServerPhotoModel>.self)
             .map { $0.response.items }
@@ -93,7 +93,7 @@ protocol AlbumListAPIProtocol {
 }
 
 protocol PhotoListAPIProtocol {
-    func getPhoto(id: Int) -> AnyPublisher<[PhotoModel], APIError>
+    func getPhoto(id: Int, offset: Int) -> AnyPublisher<[PhotoModel], APIError>
 }
 
 protocol UserAPIProtocol {
@@ -105,6 +105,6 @@ protocol FriendsListAPIProtocol {
 }
 
 protocol GroupsListAPIProtocol {
-    func getGroups() -> AnyPublisher<[GroupModel], APIError>
+    func getGroups(offset: Int) -> AnyPublisher<[GroupModel], APIError>
 }
 

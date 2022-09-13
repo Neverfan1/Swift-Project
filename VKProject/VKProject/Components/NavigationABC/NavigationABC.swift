@@ -14,7 +14,6 @@ struct NavigationABC: View {
     @State  var text: String
     @State private var isEnabled = false
     
-    
     var FriendArray: [FriendModel]
 
     var body: some View {
@@ -83,7 +82,7 @@ extension NavigationABC{
                 ForEach(Strings.ABCRU, id: \.self){
                     navigationChar in
                     Button {
-                        value.scrollTo(navigationChar, anchor:.center)
+                        value.scrollTo(navigationChar, anchor: .top)
                     } label: {
                         Text(navigationChar)
                             .padding(.trailing, 5 )

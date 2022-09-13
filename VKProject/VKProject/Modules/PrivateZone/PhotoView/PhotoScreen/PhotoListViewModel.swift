@@ -12,9 +12,9 @@ import CombineExt
 
 final class PhotoListViewModel: ObservableObject {
     
-//    let apiService = VKAPIService()
-    
     private let api: PhotoListAPIProtocol
+    
+    private var offset = CurrentValueSubject<Int, Never>(0)
     
     private let albumID: Int
     
@@ -32,13 +32,15 @@ final class PhotoListViewModel: ObservableObject {
     
     func setubBindings() {
         bindRequest()
+        bindPagination()
+        refresh()
     }
     
     func bindRequest() {
         
         let request = input.onAppear
             .map { [unowned self] in
-                self.api.getPhoto(id: self.albumID)
+                self.api.getPhoto(id: self.albumID, offset: offset.value)
                     .materialize()
                 
                 
@@ -49,7 +51,7 @@ final class PhotoListViewModel: ObservableObject {
         request
             .values()
             .sink { [weak self] in
-                self?.output.photo = $0
+                self?.output.photo.append(contentsOf: $0)
             }
             .store(in: &cancellable)
         
@@ -63,12 +65,33 @@ final class PhotoListViewModel: ObservableObject {
             }
             .store(in: &cancellable)
     }
+    
+    func bindPagination(){
+        input.paginationAction
+        .sink{ [weak self] in
+            if let offsetCount = self?.offset.value{
+                self?.offset.send(offsetCount + 10)
+            }
+            
+        }
+        .store(in: &cancellable)
+    }
+    
+    func refresh(){
+        input.refreshView
+        .sink{ [weak self] in
+                self?.offset.send(0)
+        }
+        .store(in: &cancellable)
+    }
 }
 
 extension PhotoListViewModel {
     
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
+        let paginationAction = PassthroughSubject<Void, Never>()
+        let refreshView = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
