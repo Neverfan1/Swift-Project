@@ -11,7 +11,7 @@ import Stinsen
 
 final class MainCoordinator: NavigationCoordinatable {
     
-    var stack: NavigationStack<MainCoordinator>
+    var stack = NavigationStack(initial: \MainCoordinator.authorization)
     
     @Root var authorization = makeAuthorization
     @Root var general = makeTabBar
